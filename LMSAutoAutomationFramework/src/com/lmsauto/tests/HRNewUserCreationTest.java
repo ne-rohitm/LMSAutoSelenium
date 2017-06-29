@@ -43,9 +43,9 @@ public class HRNewUserCreationTest {
 		hrNewUserPage.clickOnNextButtonStepOne();
 		hrNewUserPage.validateRequiredFieldsNewUserStepOne();
 		Commons.waitFor(500);
-		hrNewUserPage.selectTitle();											//change in excel
-		hrNewUserPage.sendDataToFirstNameTextField();                     		//change in excel
-		hrNewUserPage.sendDataToLastNameTextField();							//change in excel
+		hrNewUserPage.selectTitle();											
+		hrNewUserPage.sendDataToFirstNameTextField();                     		
+		hrNewUserPage.sendDataToLastNameTextField();							
 		hrNewUserPage.selectGender();											
 		hrNewUserPage.selectMaritalStatus();
 		hrNewUserPage.selectPhysic();
@@ -54,9 +54,9 @@ public class HRNewUserCreationTest {
 		Commons.waitFor(1000);
 		hrNewUserPage.clickOnNextButtonStepTwo();
 		hrNewUserPage.validateRequiredFieldsNewUserStepTwo();
-		hrNewUserPage.sendDataToPersonalMobileNumberTextField();				//change in excel
-		hrNewUserPage.sendDataToOfficeMobileNumberTextField();					//change in excel
-		hrNewUserPage.sendDataToPersonalEmailTextField();						//change in excel
+		hrNewUserPage.sendDataToPersonalMobileNumberTextField();				
+		hrNewUserPage.sendDataToOfficeMobileNumberTextField();					
+		hrNewUserPage.sendDataToPersonalEmailTextField();						
 		hrNewUserPage.sendDataToCorrespondenceAddressTextField();
 		hrNewUserPage.selectState();
 		hrNewUserPage.selectCity();
@@ -86,7 +86,7 @@ public class HRNewUserCreationTest {
 		//Step 5
 		Commons.waitFor(1000);
 		hrNewUserPage.selectDisplayOnWebsite();
-		hrNewUserPage.sendDataToEmployeeIdTextField();							//change in excel
+		hrNewUserPage.sendDataToEmployeeIdTextField();							
 		hrNewUserPage.selectHighSecurityPasswordType();
 		Commons.waitFor(1000);
 		hrNewUserPage.clickOnUpdate();
