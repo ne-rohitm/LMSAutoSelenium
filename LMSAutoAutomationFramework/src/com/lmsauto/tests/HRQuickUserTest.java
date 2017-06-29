@@ -22,8 +22,7 @@ public class HRQuickUserTest {
 	WebDriver driver = pdi.getDriverInstance();
 	
 	@Test
-	public void hrQuickUserCreationTest() throws IOException, InterruptedException {
-		
+	public void hrQuickUserCreationTest() throws IOException, InterruptedException, BiffException {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		SideBarPage sideBarPage = new SideBarPage(driver);	
 		Commons.waitFor(5000);
@@ -40,6 +39,17 @@ public class HRQuickUserTest {
 		HRQuickUserPage hrQuickUserPage = new HRQuickUserPage(driver);
 		hrQuickUserPage.clickOnCreateButton();
 		hrQuickUserPage.validateRequiredFieldsQuickUserPage();
+		
+		hrQuickUserPage.selectQuickUserTitle();
+		hrQuickUserPage.sendDataToQuickUserFirstNameTextField();
+		hrQuickUserPage.sendDataToQuickUserLastNameTextField();
+		hrQuickUserPage.sendDataToQuickUserPersonalMobileNumberTextField();
+		hrQuickUserPage.sendDataToQuickUserPersonalEmailTextField();
+		hrQuickUserPage.selectQuickUserDesignation();
+		hrQuickUserPage.selectQuickUserReportTo();
+		hrQuickUserPage.selectQuickUserTeamLead();
+		hrQuickUserPage.selectQuickUserRole();
+		hrQuickUserPage.clickOnCreateButton();
 	}
 	
 	@BeforeClass

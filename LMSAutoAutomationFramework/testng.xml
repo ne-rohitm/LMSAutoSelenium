@@ -11,8 +11,8 @@
 	   		<include name="pagePerCountTest"></include>
 	   	</methods>
 	   	</class>
-<!-- 	   <class name="com.lmsauto.tests.HRNewUserCreationTest"/> -->
-<!-- 	   <class name="com.lmsauto.tests.HRQuickUserTest"></class> -->
+	   <class name="com.lmsauto.tests.HRNewUserCreationTest"/>
+	   <class name="com.lmsauto.tests.HRQuickUserTest"></class>
     </classes>
   </test> <!-- testng_pom -->
 </suite> <!-- Suite -->
