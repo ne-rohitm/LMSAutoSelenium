@@ -2,20 +2,17 @@ package com.lmsauto.tests;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ProvideDriverInstance;
 import com.lmsauto.pages.HRListUsersPage;
 import com.lmsauto.pages.HRNewUserPage;
 import com.lmsauto.pages.SideBarPage;
-
 import jxl.read.biff.BiffException;
 
 public class HRNewUserCreationTest {
@@ -75,6 +72,9 @@ public class HRNewUserCreationTest {
 		hrNewUserPage.clickOnNextButtonStepThree();
 		//Step 4
 		Commons.waitFor(10000);
+		hrNewUserPage.clickOnNextButtonStepFour();
+		hrNewUserPage.validateRequiredFieldsNewUserStepFour();
+		Commons.waitFor(500);
 		hrNewUserPage.sendDataToDepartments();
 		hrNewUserPage.selectDesignation();
 		hrNewUserPage.selectReportingTo();
@@ -85,9 +85,17 @@ public class HRNewUserCreationTest {
 		hrNewUserPage.clickOnNextButtonStepFour();
 		//Step 5
 		Commons.waitFor(1000);
+		hrNewUserPage.clickOnUpdate();
+		Commons.waitFor(500);
+		hrNewUserPage.validateRequiredFieldsNewUserStepFive();
+		hrNewUserPage.selectHighSecurityPasswordTypeAsAlwaysFixed();
+		hrNewUserPage.validateRequiredFieldsNewUserStepFive();
+		Commons.waitFor(500);
+		hrNewUserPage.sendDataToHighSecurityPasswordTextField();
+		hrNewUserPage.selectHighSecurityPasswordTypeAsAlwaysOTP();
+		hrNewUserPage.validateRequiredFieldsNewUserStepFive();
 		hrNewUserPage.selectDisplayOnWebsite();
-		hrNewUserPage.sendDataToEmployeeIdTextField();							
-		hrNewUserPage.selectHighSecurityPasswordType();
+		hrNewUserPage.sendDataToEmployeeIdTextField();						
 		Commons.waitFor(1000);
 		hrNewUserPage.clickOnUpdate();
 		Commons.waitFor(1000);

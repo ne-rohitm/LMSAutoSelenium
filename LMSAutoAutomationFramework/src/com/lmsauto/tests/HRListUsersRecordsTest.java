@@ -16,7 +16,7 @@ import com.lmsauto.pages.SideBarPage;
 
 import jxl.read.biff.BiffException;
 
-public class HRListUsersRecordsPerPageCountTest {
+public class HRListUsersRecordsTest {
 
 	ProvideDriverInstance pdi = new ProvideDriverInstance();
 	WebDriver driver = pdi.getDriverInstance();
@@ -44,8 +44,6 @@ public class HRListUsersRecordsPerPageCountTest {
 		hrListUsersPage.clearDataOfRecordsPerPageTextField();
 		hrListUsersPage.sendDataToRecordsPerPageTextField("20"); // change
 		hrListUsersPage.verifyWhetherRecordsPerPageAreShownCorrect(20); // 20 is expected count
-		
-		
 	}
 
 	/*
@@ -91,9 +89,7 @@ public class HRListUsersRecordsPerPageCountTest {
 			System.out.println("Pagination Pages count is displayed correctly." + pages);
 		} else {
 			System.out.println("Pagination Pages count is displayed correctly." + pages);
-		}
-		
-		
+		}	
 	}
 
 	@BeforeClass

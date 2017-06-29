@@ -46,6 +46,10 @@ public class HRNewUserPage {
 		driver.findElement(By.xpath(prop.getProperty("employeeId"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 8, "NewUserPage"));
 	}
 	
+	public void sendDataToHighSecurityPasswordTextField() throws BiffException, IOException {
+		driver.findElement(By.xpath(prop.getProperty("highSecurityPassword"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 25, "NewUserPage"));
+	}
+	
 	public void selectGender() throws BiffException, IOException {
 		WebElement element = driver.findElement(By.xpath(prop.getProperty("gender")));
 		Select select = new Select(element);
@@ -100,10 +104,16 @@ public class HRNewUserPage {
 		select.selectByVisibleText(readExcelData.getCellDataWithRowColAndSheetName(0, 20, "NewUserPage"));
 	}
 	
-	public void selectHighSecurityPasswordType() throws BiffException, IOException {
+	public void selectHighSecurityPasswordTypeAsAlwaysOTP() throws BiffException, IOException {
 		WebElement element = driver.findElement(By.xpath(prop.getProperty("highSecurityPasswordType")));
 		Select select = new Select(element);
 		select.selectByVisibleText(readExcelData.getCellDataWithRowColAndSheetName(0, 21, "NewUserPage"));
+	}
+	
+	public void selectHighSecurityPasswordTypeAsAlwaysFixed() throws BiffException, IOException {
+		WebElement element = driver.findElement(By.xpath(prop.getProperty("highSecurityPasswordType")));
+		Select select = new Select(element);
+		select.selectByVisibleText(readExcelData.getCellDataWithRowColAndSheetName(0, 26, "NewUserPage"));
 	}
 	
 	public void selectHighestEducation() throws BiffException, IOException {
@@ -180,7 +190,7 @@ public class HRNewUserPage {
 		Assert.assertEquals("Gender is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("genderValidationMsg"))).getText());
 		Assert.assertEquals("Physic is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("physicValidationMsg"))).getText());
 		Assert.assertEquals("MaritalStatus is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("maritalStatusValidationMsg"))).getText());
-		System.out.println("All required fields on step 1 page are Validated.....");
+		System.out.println("All required fields on step 1 page are Validated successfully.....");
 	}
 	
 	public void validateRequiredFieldsNewUserStepTwo() throws BiffException, IOException, InterruptedException {
@@ -203,12 +213,36 @@ public class HRNewUserPage {
 		Assert.assertEquals("Permanent Address City is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("permanentAddressCityValidationMsg"))).getText());
 		Assert.assertEquals("Permanent Address Pin is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("permanentAddressPinValidationMsg"))).getText());
 		Assert.assertEquals("Permanent Address Country is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("permanentAddressCountryValidationMsg"))).getText());
-		System.out.println("All required fields on step 2 page are Validated.....");
+		System.out.println("All required fields on step 2 page are Validated successfully.....");
 	}
 	
 	public void validateRequiredFieldsNewUserStepThree() {
 		System.out.println("Validating the required fields for step 3.....");
 		Assert.assertEquals("Highest Education is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("highestEducationValidationMsg"))).getText());
-		System.out.println("All required fields on step 3 page are Validated.....");
+		System.out.println("All required fields on step 3 page are Validated successfully.....");
+	}
+	
+	public void validateRequiredFieldsNewUserStepFour() {
+		System.out.println("Validating the required fields for step 4.....");
+		Assert.assertEquals("Department is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("departmentsValidationMsg"))).getText());
+		Assert.assertEquals("Designation is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("designationValidationMsg"))).getText());
+		Assert.assertEquals("Reporting To is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("reportingToValidationMsg"))).getText());
+		Assert.assertEquals("Joining Date is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("joiningDateValidationMsg"))).getText());
+		Assert.assertEquals("Joining Date is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("teamLeadValidationMsg"))).getText());
+		System.out.println("All required fields on step 4 page are Validated successfully.....");
+	}
+	
+	public void validateRequiredFieldsNewUserStepFive() {
+		System.out.println("Validating the required fields for step 5.....");
+		if(driver.findElement(By.xpath(prop.getProperty("highSecurityPasswordType"))).getText().equals("Select Password Type")) {
+			Assert.assertEquals("High Security Password type is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("highSecurityPasswordTypeValidationMsg"))).getText());
+			Assert.assertEquals("Show on website is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("displayOnWebsiteValidationMsg"))).getText());
+		} else if(driver.findElement(By.xpath(prop.getProperty("highSecurityPasswordType"))).getText().equals("Always Fixed")) {
+			Assert.assertEquals("High Security Password is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("highSecurityPasswordValidationMsg"))).getText());
+			Assert.assertEquals("Show on website is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("displayOnWebsiteValidationMsg"))).getText());
+		} else {
+			Assert.assertEquals("Show on website is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("displayOnWebsiteValidationMsg"))).getText());
+		}		
+		System.out.println("All required fields on step 5 page are Validated successfully.....");
 	}
 }
