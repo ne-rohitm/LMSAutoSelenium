@@ -36,6 +36,10 @@ public class SideBarPage {
 		return driver.findElement(By.xpath(prop.getProperty("hrNewUser")));
 	}
 	
+	public WebElement clickOnHRQuickUser() {
+		return driver.findElement(By.xpath(prop.getProperty("hrQuickUser")));
+	}
+	
 	public String getWelcomeText() {
 		return driver.findElement(By.xpath(prop.getProperty("welcomeText"))).getText();
 	}
