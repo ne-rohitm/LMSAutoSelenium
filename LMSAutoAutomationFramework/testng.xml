@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="none" thread-count="1">
+  <test name="testng_pom">
+  <parameter name="browser" value="firefox"></parameter>
+    <classes>
+<!--        <class name="com.lmsauto.tests.HRListUsersRecordsPerPageCountTest"> -->
+<!--        <methods> -->
+<!--  	   		<include name="paginationCountTest"></include> --> 
+<!-- 	   		<include name="pagePerCountTest"></include> -->
+<!-- 	   	</methods> -->
+<!-- 	   	</class> -->
+	   <class name="com.lmsauto.tests.HRNewUserCreationTest"/>
+    </classes>
+  </test> <!-- testng_pom -->
+</suite> <!-- Suite -->

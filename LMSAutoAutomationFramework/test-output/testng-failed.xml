@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <test name="testng_pom(failed)">
+    <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="com.lmsauto.tests.HRNewUserCreationTest">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="hrNewUserCreationTest"/>
+          <include name="afterClass"/>
+        </methods>
+      </class> <!-- com.lmsauto.tests.HRNewUserCreationTest -->
+    </classes>
+  </test> <!-- testng_pom(failed) -->
+</suite> <!-- Failed suite [Suite] -->
