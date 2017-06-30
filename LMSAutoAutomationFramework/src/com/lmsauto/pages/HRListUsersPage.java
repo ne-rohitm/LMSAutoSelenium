@@ -5,8 +5,11 @@ import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ReadExcelData;
 import com.lmsauto.classes.ReadObjectRepository;
 
@@ -85,5 +88,19 @@ public class HRListUsersPage {
 		} else {
 			System.out.println("Records Per page are shown incorrect");
 		}
+	}
+	
+	public void navigateToHrListUsersPage() throws IOException, InterruptedException {
+		SideBarPage sideBarPage = new SideBarPage(driver);
+		Commons.waitFor(5000);
+		WebElement hr = sideBarPage.clickOnHR();
+		Actions ac = new Actions(driver);
+		ac.moveToElement(hr).click().build().perform();
+		Commons.waitFor(500);
+		WebElement userManagement = sideBarPage.clickOnHRUserManagement();
+		ac.moveToElement(userManagement).click().build().perform();
+		Commons.waitFor(500);
+		WebElement listUsers = sideBarPage.clickOnHRListUsers();
+		ac.moveToElement(listUsers).click().build().perform();
 	}
 }

@@ -5,14 +5,15 @@
   <test name="testng_pom">
   <parameter name="browser" value="firefox"></parameter>
     <classes>
-       <class name="com.lmsauto.tests.HRListUsersRecordsTest">
-       <methods>
- 	   		<include name="paginationCountTest"></include> 
-	   		<include name="pagePerCountTest"></include>
-	   	</methods>
-	   	</class>
-	   <class name="com.lmsauto.tests.HRNewUserCreationTest"/>
-	   <class name="com.lmsauto.tests.HRQuickUserTest"></class>
+<!--        <class name="com.lmsauto.tests.HRListUsersRecordsTest"> -->
+<!--        <methods> -->
+<!--  	   		<include name="paginationCountTest"></include>  -->
+<!-- 	   		<include name="pagePerCountTest"></include> -->
+<!-- 	   	</methods> -->
+<!-- 	   	</class> -->
+<!-- 	   <class name="com.lmsauto.tests.HRNewUserCreationTest"/> -->
+<!-- 	   <class name="com.lmsauto.tests.HRQuickUserTest"></class> -->
+	   <class name="com.lmsauto.tests.UserProfileTest"></class>
     </classes>
   </test> <!-- testng_pom -->
 </suite> <!-- Suite -->
