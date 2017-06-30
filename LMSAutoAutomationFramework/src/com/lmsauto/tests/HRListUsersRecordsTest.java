@@ -3,8 +3,6 @@ package com.lmsauto.tests;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -12,7 +10,6 @@ import org.testng.annotations.Test;
 import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ProvideDriverInstance;
 import com.lmsauto.pages.HRListUsersPage;
-import com.lmsauto.pages.SideBarPage;
 
 import jxl.read.biff.BiffException;
 
@@ -26,20 +23,9 @@ public class HRListUsersRecordsTest {
 	 */
 	@Test(priority = 0)
 	public void pagePerCountTest() throws InterruptedException, IOException, BiffException {
-		SideBarPage sideBarPage = new SideBarPage(driver);
-		Commons.waitFor(5000);
-		WebElement hr = sideBarPage.clickOnHR();
-		Actions ac = new Actions(driver);
-		ac.moveToElement(hr).click().build().perform();
-		Commons.waitFor(500);
-		WebElement userManagement = sideBarPage.clickOnHRUserManagement();
-		ac.moveToElement(userManagement).click().build().perform();
-		Commons.waitFor(500);
-		WebElement listUsers = sideBarPage.clickOnHRListUsers();
-		ac.moveToElement(listUsers).click().build().perform();
-		Commons.waitFor(1000);
-		
 		HRListUsersPage hrListUsersPage = new HRListUsersPage(driver);
+		Commons.waitFor(1000);
+		hrListUsersPage.navigateToHrListUsersPage();
 		Commons.waitFor(1000);
 		hrListUsersPage.clearDataOfRecordsPerPageTextField();
 		hrListUsersPage.sendDataToRecordsPerPageTextField("20"); // change
@@ -52,19 +38,10 @@ public class HRListUsersRecordsTest {
 
 	@Test(priority = 1)
 	public void paginationCountTest() throws IOException, InterruptedException {
-		SideBarPage sideBarPage = new SideBarPage(driver);
-		Commons.waitFor(5000);
-		WebElement hr = sideBarPage.clickOnHR();
-		Actions ac = new Actions(driver);
-		ac.moveToElement(hr).click().build().perform();
-		Commons.waitFor(500);
-		WebElement userManagement = sideBarPage.clickOnHRUserManagement();
-		ac.moveToElement(userManagement).click().build().perform();
-		Commons.waitFor(500);
-		WebElement listUsers = sideBarPage.clickOnHRListUsers();
-		ac.moveToElement(listUsers).click().build().perform();
-		
 		HRListUsersPage hrListUsersPage = new HRListUsersPage(driver);
+		Commons.waitFor(1000);
+		hrListUsersPage.navigateToHrListUsersPage();
+		Commons.waitFor(1000);
 		hrListUsersPage.clearDataOfRecordsPerPageTextField();
 		hrListUsersPage.sendDataToRecordsPerPageTextField("1"); // change
 		int recordsPerPageTextFieldValue = 25;

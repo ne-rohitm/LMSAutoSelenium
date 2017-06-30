@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.lmsauto.classes.Commons;
@@ -244,5 +245,19 @@ public class HRNewUserPage {
 			Assert.assertEquals("Show on website is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("displayOnWebsiteValidationMsg"))).getText());
 		}		
 		System.out.println("All required fields on step 5 page are Validated successfully.....");
+	}
+	
+	public void navigateToHrNewUserPage() throws IOException, InterruptedException {
+		SideBarPage sideBarPage = new SideBarPage(driver);	
+		Commons.waitFor(5000);
+		WebElement hr = sideBarPage.clickOnHR();
+		Actions ac = new Actions(driver);
+		ac.moveToElement(hr).click().build().perform();
+		Commons.waitFor(500);
+		WebElement userManagement = sideBarPage.clickOnHRUserManagement();
+		ac.moveToElement(userManagement).click().build().perform();
+		Commons.waitFor(500);
+		WebElement newUser = sideBarPage.clickOnHRNewUser();
+		ac.moveToElement(newUser).click().build().perform();
 	}
 }

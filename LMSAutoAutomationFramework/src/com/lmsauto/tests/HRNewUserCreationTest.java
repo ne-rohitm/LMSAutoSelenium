@@ -2,17 +2,17 @@ package com.lmsauto.tests;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ProvideDriverInstance;
 import com.lmsauto.pages.HRListUsersPage;
 import com.lmsauto.pages.HRNewUserPage;
-import com.lmsauto.pages.SideBarPage;
+
 import jxl.read.biff.BiffException;
 
 public class HRNewUserCreationTest {
@@ -22,21 +22,12 @@ public class HRNewUserCreationTest {
 	@Test
 	public void hrNewUserCreationTest() throws IOException, InterruptedException, BiffException {
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		SideBarPage sideBarPage = new SideBarPage(driver);	
-		Commons.waitFor(5000);
-		WebElement hr = sideBarPage.clickOnHR();
-		Actions ac = new Actions(driver);
-		ac.moveToElement(hr).click().build().perform();
-		Commons.waitFor(500);
-		WebElement userManagement = sideBarPage.clickOnHRUserManagement();
-		ac.moveToElement(userManagement).click().build().perform();
-		Commons.waitFor(500);
-		WebElement newUser = sideBarPage.clickOnHRNewUser();
-		ac.moveToElement(newUser).click().build().perform();
+		HRNewUserPage hrNewUserPage = new HRNewUserPage(driver);
 		// Create New User
 		//Step 1
-		Commons.waitFor(500);
-		HRNewUserPage hrNewUserPage = new HRNewUserPage(driver);
+		Commons.waitFor(1000);
+		hrNewUserPage.navigateToHrNewUserPage();
+		Commons.waitFor(1000);
 		hrNewUserPage.clickOnNextButtonStepOne();
 		hrNewUserPage.validateRequiredFieldsNewUserStepOne();
 		Commons.waitFor(500);
@@ -99,18 +90,8 @@ public class HRNewUserCreationTest {
 		Commons.waitFor(1000);
 		hrNewUserPage.clickOnUpdate();
 		Commons.waitFor(1000);
-		
-		SideBarPage sideBarPage1 = new SideBarPage(driver);
-		Commons.waitFor(500);
-		WebElement hr1 = sideBarPage1.clickOnHR();
-		ac.moveToElement(hr1).click().build().perform();
-		Commons.waitFor(500);
-		WebElement userManagement1 = sideBarPage.clickOnHRUserManagement();
-		ac.moveToElement(userManagement1).click().build().perform();
-		Commons.waitFor(500);
-		WebElement listUsers = sideBarPage.clickOnHRListUsers();
-		ac.moveToElement(listUsers).click().build().perform();
 		HRListUsersPage hrListUsersPage = new HRListUsersPage(driver);
+		hrListUsersPage.navigateToHrListUsersPage();
 		Commons.waitFor(1000);
 		hrListUsersPage.getDataOfNewlyAddedEnquiry();	
 	}
