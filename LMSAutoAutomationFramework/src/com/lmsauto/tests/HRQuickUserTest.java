@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ProvideDriverInstance;
 import com.lmsauto.pages.HRQuickUserPage;
+import com.lmsauto.pages.LoginPage;
 
 import jxl.read.biff.BiffException;
 
@@ -41,8 +42,8 @@ public class HRQuickUserTest {
 	
 	@BeforeClass
 	public void beforeMethod() throws InterruptedException, IOException, BiffException {
-		Commons c = new Commons(driver);
-		c.loginToTheApplication();
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.loginToTheApplication();
 	}
 
 	@AfterClass
