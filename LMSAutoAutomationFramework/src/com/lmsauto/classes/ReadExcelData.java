@@ -23,16 +23,4 @@ public class ReadExcelData {
 		Cell cell = sheet.getCell(col, row);
 		return cell.getContents();
 	}
-	
-//	public static void main(String[] args) throws BiffException, IOException {
-//		// TODO Auto-generated method stub
-//		ReadExcelData red = new ReadExcelData();
-//		String data = red.getCellDataWithRowColAndSheetName(4,9,"First");
-//		System.out.println(data);
-//		
-//		String data1 = red.getCellDataWithRowColAndSheetNumber(4, 9, 0);
-//		System.out.println(data1);
-//		
-//	}
-
 }
