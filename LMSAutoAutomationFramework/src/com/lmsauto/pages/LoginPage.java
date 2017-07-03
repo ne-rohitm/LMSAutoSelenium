@@ -67,7 +67,7 @@ public class LoginPage {
 	
 	public void loginToTheApplication() throws InterruptedException, IOException, BiffException {
 		LoginPage loginPage = new LoginPage(driver);
-		Commons.waitFor(500);
+		Commons.waitFor(1000);
 		loginPage.sendDataToUsernameTextField(readExcelData.getCellDataWithRowColAndSheetName(0, 1, "LoginPage"));
 		Commons.waitFor(1000);
 		loginPage.clickOnNextButton();
