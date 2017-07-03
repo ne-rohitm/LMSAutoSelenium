@@ -103,4 +103,8 @@ public class HRListUsersPage {
 		WebElement listUsers = sideBarPage.clickOnHRListUsers();
 		ac.moveToElement(listUsers).click().build().perform();
 	}
+	
+	public void clickOnUserPermissionsPage() {
+		driver.findElement(By.xpath(prop.getProperty("userPermissions"))).click();
+	}
 }
