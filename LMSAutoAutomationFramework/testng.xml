@@ -5,18 +5,19 @@
 	<test name="testng_pom">
 		<parameter name="browser" value="firefox"></parameter>
 		<classes>
-			<class name="com.lmsauto.tests.HRListUsersRecordsTest">
-				<methods>
-					<include name="paginationCountTest"></include>
-					<include name="pagePerCountTest"></include>
-				</methods>
-			</class>
-			<class name="com.lmsauto.tests.HRNewUserCreationTest" />
-			<class name="com.lmsauto.tests.HRQuickUserTest"></class>
+<!-- 			<class name="com.lmsauto.tests.HRListUsersRecordsTest"> -->
+<!-- 				<methods> -->
+<!-- 					<include name="paginationCountTest"></include> -->
+<!-- 					<include name="pagePerCountTest"></include> -->
+<!-- 				</methods> -->
+<!-- 			</class> -->
+<!-- 			<class name="com.lmsauto.tests.HRNewUserCreationTest" /> -->
+<!-- 			<class name="com.lmsauto.tests.HRQuickUserTest"></class> -->
 			<class name="com.lmsauto.tests.UserProfileTest">
 				<methods>
-					<include name="userProfileTest"></include>
-					<include name="userProfileValidationTest"></include>
+<!-- 					<include name="userProfileTest"></include> -->
+<!-- 					<include name="userProfileValidationTest"></include> -->
+					<include name="validateAndUpdateProfilePicureTest"></include>
 				</methods>
 			</class>
 			<class name="com.lmsauto.tests.HRListUsersUserPermissionsTest"></class>
