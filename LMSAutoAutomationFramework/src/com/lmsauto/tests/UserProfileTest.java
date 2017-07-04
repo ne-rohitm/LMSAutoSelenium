@@ -46,8 +46,17 @@ public class UserProfileTest {
 		Commons.waitFor(200);
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.loginToTheApplication();
-		
 	}
+	
+	@Test
+	public void validateAndUpdateProfilePicureTest() throws IOException, BiffException, InterruptedException {
+		UserProfilePage userProfilePage = new UserProfilePage(driver);
+		userProfilePage.navigateToUserProfile();
+		userProfilePage.validateProfileSection();
+		userProfilePage.sendPathOfImageToProfilePicture();
+		userProfilePage.clickOnProfileUpdateButton();
+	}
+	
 	@BeforeClass
 	public void beforeMethod() throws InterruptedException, IOException, BiffException {
 		LoginPage loginPage = new LoginPage(driver);

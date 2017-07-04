@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
+import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ProvideDriverInstance;
 import com.lmsauto.pages.HRListUserUserPermissionsPage;
 import com.lmsauto.pages.LoginPage;
@@ -23,14 +23,24 @@ public class HRListUsersUserPermissionsTest {
 		hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
 		
 		hrListUserUserPermissionsPage.verifyCountOfOnPermissions();
+		Commons.waitFor(500);
 		hrListUserUserPermissionsPage.TurnOffPermissionsOfLmsAutoSection();
+		Commons.waitFor(500);
 		hrListUserUserPermissionsPage.TurnOffPermissionsOfDashboardSection();
+		Commons.waitFor(500);
 		hrListUserUserPermissionsPage.TurnOffPermissionsOfSalesSection();
+		Commons.waitFor(500);
 		hrListUserUserPermissionsPage.TurnOffPermissionsOfHRSection();
 		
-		hrListUserUserPermissionsPage.TurnOnPermissionsOfLmsAutoSection();
-		hrListUserUserPermissionsPage.TurnOnPermissionsOfDashboardSection();
+		Commons.waitFor(500);
 		hrListUserUserPermissionsPage.TurnOnPermissionsOfHRSection();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfLmsAutoSection();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfDashboardSection();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfSalesSection();
+		Commons.waitFor(500);
 		hrListUserUserPermissionsPage.TurnOnPermissionsOfSalesSection();
 	}
 	

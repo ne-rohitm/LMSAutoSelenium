@@ -67,6 +67,10 @@ public class UserProfilePage {
 		driver.findElement(By.xpath(prop.getProperty("changePasswordUpdateButton"))).click();
 	}
 	
+	public void clickOnProfileUpdateButton() {
+		driver.findElement(By.xpath(prop.getProperty("profileUpdateButton"))).click();
+	}
+	
 	public void sendDataToOldPasswordTextField() throws BiffException, IOException {
 		driver.findElement(By.xpath(prop.getProperty("oldPassword"))).clear();
 		driver.findElement(By.xpath(prop.getProperty("oldPassword"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(1, 1, "LoginPage"));
@@ -120,5 +124,13 @@ public class UserProfilePage {
 	
 	public String getUpdatedPassword() throws BiffException, IOException {
 		return readExcelData.getCellDataWithRowColAndSheetName(0, 0, "UserProfilePage");
+	}
+	
+	public void sendPathOfImageToProfilePicture() throws BiffException, IOException {
+		driver.findElement(By.xpath("profilePicture")).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 3, "UserProfilePage"));
+	}
+	
+	public void validateProfileSection() throws BiffException, IOException, InterruptedException {
+		Assert.assertEquals("Profile Picture is not Validated", "Profile picture cannot be blank.", driver.findElement(By.xpath(prop.getProperty("profilePictureValidationMsg"))).getText());
 	}
 }

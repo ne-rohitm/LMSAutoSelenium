@@ -1,14 +1,12 @@
 package com.lmsauto.pages;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.Color;
 import org.testng.Assert;
 
 import com.lmsauto.classes.Commons;
@@ -64,7 +62,7 @@ public class HRListUserUserPermissionsPage {
 	}
 	
 	public void TurnOffPermissionsOfLmsAutoSection() throws InterruptedException {
-		Commons.waitFor(500);
+		Commons.waitFor(5000);
 		driver.findElement(By.xpath("//a[@href='#lms']")).click();
 		for(int i = 1;i<4;i++) {
 			String val = driver.findElement(By.xpath("//*[@id='child1_020"+i+"']")).getAttribute("ng-checked");
@@ -78,7 +76,7 @@ public class HRListUserUserPermissionsPage {
 	}
 	
 	public void TurnOnPermissionsOfLmsAutoSection() throws InterruptedException {
-		Commons.waitFor(500);
+		Commons.waitFor(5000);
 		driver.findElement(By.xpath("//a[@href='#lms']")).click();
 		for(int i = 1;i<4;i++) {
 			String val = driver.findElement(By.xpath("//*[@id='child1_020"+i+"']")).getAttribute("ng-checked");
@@ -92,8 +90,8 @@ public class HRListUserUserPermissionsPage {
 	}
 	
 	public void TurnOffPermissionsOfHRSection() throws InterruptedException {
-		Commons.waitFor(500);
-		driver.findElement(By.xpath("//a[@href='#hr']")).click();
+		Commons.waitFor(5000);
+		driver.findElement(By.xpath("//a[contains(@href,'#hr')]")).click();
 		for(int i = 1;i<4;i++) {
 			String val = driver.findElement(By.xpath("//*[@id='child1_030"+i+"']")).getAttribute("ng-checked");
 			if(val.equals("true")) {
@@ -106,9 +104,8 @@ public class HRListUserUserPermissionsPage {
 	}
 	
 	public void TurnOnPermissionsOfHRSection() throws InterruptedException {
-		Commons.waitFor(500);
-		driver.findElement(By.xpath("//a[@href='#hr']")).click();
-		
+		Commons.waitFor(5000);
+		driver.findElement(By.xpath("//a[contains(@href,'#hr')]")).click();
 		for(int i = 1;i<4;i++) {
 			String val = driver.findElement(By.xpath("//*[@id='child1_030"+i+"']")).getAttribute("ng-checked");
 			if(val.equals("")) {
@@ -121,7 +118,7 @@ public class HRListUserUserPermissionsPage {
 	}
 	
 	public void TurnOffPermissionsOfDashboardSection() throws InterruptedException {
-		Commons.waitFor(500);
+		Commons.waitFor(5000);
 		driver.findElement(By.xpath("//a[@href='#dashboard']")).click();
 		for(int i = 1;i<8;i++) {
 			String val = driver.findElement(By.xpath("//*[@id='child1_010"+i+"']")).getAttribute("ng-checked");
@@ -135,7 +132,7 @@ public class HRListUserUserPermissionsPage {
 	}
 	
 	public void TurnOnPermissionsOfDashboardSection() throws InterruptedException {
-		Commons.waitFor(500);
+		Commons.waitFor(5000);
 		driver.findElement(By.xpath("//a[@href='#dashboard']")).click();
 		for(int i = 1;i<8;i++) {
 			String val = driver.findElement(By.xpath("//*[@id='child1_010"+i+"']")).getAttribute("ng-checked");
@@ -149,8 +146,8 @@ public class HRListUserUserPermissionsPage {
 	}
 	
 	public void TurnOffPermissionsOfSalesSection() throws InterruptedException {
-		Commons.waitFor(500);
-		driver.findElement(By.xpath("//a[@href='#sales']")).click();
+		Commons.waitFor(5000);
+		driver.findElement(By.xpath("//*[@id='accordion']/div[4]/div[1]/h4/a")).click();
 		for(int i = 1;i<3;i++) {
 			Commons.waitFor(500);
 			String val = driver.findElement(By.xpath("//*[@id='child1_040"+i+"']")).getAttribute("ng-checked");
@@ -165,8 +162,8 @@ public class HRListUserUserPermissionsPage {
 	}
 	
 	public void TurnOnPermissionsOfSalesSection() throws InterruptedException {
-		Commons.waitFor(500);
-		driver.findElement(By.xpath("//a[@href='#sales']")).click();
+		Commons.waitFor(5000);
+		driver.findElement(By.xpath("//*[@id='accordion']/div[4]/div[1]/h4/a")).click();
 		for(int i = 1;i<3;i++) {
 			Commons.waitFor(500);
 			String val = driver.findElement(By.xpath("//*[@id='child1_040"+i+"']")).getAttribute("ng-checked");
