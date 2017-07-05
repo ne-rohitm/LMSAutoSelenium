@@ -18,30 +18,150 @@ public class HRListUsersUserPermissionsTest {
 	ProvideDriverInstance pdi = new ProvideDriverInstance();
 	WebDriver driver = pdi.getDriverInstance();
 	@Test
-	public void userPermissionsTest() throws InterruptedException, IOException, BiffException {
+	public void userPermissionsOffTest() throws InterruptedException, IOException, BiffException {
+		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
+		hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
+		
+		hrListUserUserPermissionsPage.verifyCountOfOnPermissions();
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfLmsAutoSection();
+		hrListUserUserPermissionsPage.clickOnLMSAutoPermissionsLink();
+		System.out.println("off1");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfDashboardSection();
+		hrListUserUserPermissionsPage.clickOnDashboardPermissionsLink();
+		System.out.println("off2");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfSalesSection();
+		hrListUserUserPermissionsPage.clickOnSalesPermissionsLink();
+		System.out.println("off3");
+	
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfHRSection();
+		hrListUserUserPermissionsPage.clickOnHrPermissionsLink();
+		System.out.println("off4");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfVehiclePricingSection();
+		hrListUserUserPermissionsPage.clickOnVehiclePricingPermissionsLink();
+		System.out.println("off5");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfResponseSection();
+		hrListUserUserPermissionsPage.clickOnResponsePermissionsLink();
+		System.out.println("off6");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfMarketingSection();
+		hrListUserUserPermissionsPage.clickOnMarketingPermissionsLink();
+		System.out.println("off7");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfAccountsSection();
+		hrListUserUserPermissionsPage.clickOnAccountsPermissionsLink();
+		System.out.println("off8");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfReportsSection();
+		hrListUserUserPermissionsPage.clickOnReportsPermissionsLink();
+		System.out.println("off9");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfCareersSection();
+		hrListUserUserPermissionsPage.clickOnCareersPermissionsLink();
+		System.out.println("off10");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfCloudTelephonySection();
+		hrListUserUserPermissionsPage.clickOnCloudTelephonyPermissionsLink();
+		System.out.println("off11");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfMyStorageSection();
+		hrListUserUserPermissionsPage.clickOnMyStoragePermissionsLink();
+		System.out.println("off12");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOffPermissionsOfServiceSection();
+		hrListUserUserPermissionsPage.clickOnServicePermissionsLink();
+		System.out.println("off13");
+		
+		driver.navigate().refresh();
+	}
+	
+	@Test
+	public void userPermissionsOnTest() throws InterruptedException, IOException, BiffException {
 		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
 		hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
 		
 		hrListUserUserPermissionsPage.verifyCountOfOnPermissions();
 		Commons.waitFor(500);
-		hrListUserUserPermissionsPage.TurnOffPermissionsOfLmsAutoSection();
-		Commons.waitFor(500);
-		hrListUserUserPermissionsPage.TurnOffPermissionsOfDashboardSection();
-		Commons.waitFor(500);
-		hrListUserUserPermissionsPage.TurnOffPermissionsOfSalesSection();
-		Commons.waitFor(500);
-		hrListUserUserPermissionsPage.TurnOffPermissionsOfHRSection();
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfLmsAutoSection();
+		hrListUserUserPermissionsPage.clickOnLMSAutoPermissionsLink();
+		System.out.println("on1");
 		
 		Commons.waitFor(500);
-		hrListUserUserPermissionsPage.TurnOnPermissionsOfHRSection();
-		Commons.waitFor(500);
-		hrListUserUserPermissionsPage.TurnOnPermissionsOfLmsAutoSection();
-		Commons.waitFor(500);
 		hrListUserUserPermissionsPage.TurnOnPermissionsOfDashboardSection();
+		hrListUserUserPermissionsPage.clickOnDashboardPermissionsLink();
+		System.out.println("on2");
+	
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfHRSection();
+		hrListUserUserPermissionsPage.clickOnHrPermissionsLink();
+		System.out.println("on3");
+		
 		Commons.waitFor(500);
 		hrListUserUserPermissionsPage.TurnOnPermissionsOfSalesSection();
+		hrListUserUserPermissionsPage.clickOnSalesPermissionsLink();
+		System.out.println("on4");
+		
 		Commons.waitFor(500);
-		hrListUserUserPermissionsPage.TurnOnPermissionsOfSalesSection();
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfVehiclePricingSection();
+		hrListUserUserPermissionsPage.clickOnVehiclePricingPermissionsLink();
+		System.out.println("on5");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfResponseSection();
+		hrListUserUserPermissionsPage.clickOnResponsePermissionsLink();
+		System.out.println("on6");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfMarketingSection();
+		hrListUserUserPermissionsPage.clickOnMarketingPermissionsLink();
+		System.out.println("on7");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfAccountsSection();
+		hrListUserUserPermissionsPage.clickOnAccountsPermissionsLink();
+		System.out.println("on8");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfReportsSection();
+		hrListUserUserPermissionsPage.clickOnReportsPermissionsLink();
+		System.out.println("on9");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfCareersSection();
+		hrListUserUserPermissionsPage.clickOnCareersPermissionsLink();
+		System.out.println("on10");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfCloudTelephonySection();
+		hrListUserUserPermissionsPage.clickOnCloudTelephonyPermissionsLink();
+		System.out.println("on11");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfMyStorageSection();
+		hrListUserUserPermissionsPage.clickOnMyStoragePermissionsLink();
+		System.out.println("on12");
+		
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.TurnOnPermissionsOfServiceSection();
+		hrListUserUserPermissionsPage.clickOnServicePermissionsLink();
+		System.out.println("on13");
 	}
 	
 	@BeforeClass
