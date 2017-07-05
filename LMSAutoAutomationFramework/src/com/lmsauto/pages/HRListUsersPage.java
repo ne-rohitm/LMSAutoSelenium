@@ -104,7 +104,7 @@ public class HRListUsersPage {
 		ac.moveToElement(listUsers).click().build().perform();
 	}
 	
-	public void clickOnUserPermissionsPage() {
-		driver.findElement(By.xpath(prop.getProperty("userPermissions"))).click();
+	public void clickOnUserPermissionsPage(int total_cnt) throws InterruptedException {
+		driver.findElement(By.xpath("//html/body/div[4]/div/div[3]/div[3]/div/div[1]/div/div[2]/table/tbody/tr["+total_cnt+"]/td[10]/div[1]/a")).click();
 	}
 }

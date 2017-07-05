@@ -23,7 +23,7 @@
 			<class name="com.lmsauto.tests.HRListUsersUserPermissionsTest">
 				<methods>
 					<include name="userPermissionsOffTest"></include>
-					<include name="userPermissionsOnTest"></include>
+<!-- 					<include name="userPermissionsOnTest"></include> -->
 				</methods>
 			</class>
 		</classes>
