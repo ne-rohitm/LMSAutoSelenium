@@ -51,7 +51,9 @@ public class UserProfileTest {
 	@Test
 	public void validateAndUpdateProfilePicureTest() throws IOException, BiffException, InterruptedException {
 		UserProfilePage userProfilePage = new UserProfilePage(driver);
+		userProfilePage.compareUserNames();
 		userProfilePage.navigateToUserProfile();
+		userProfilePage.clickOnProfileUpdateButton();
 		userProfilePage.validateProfileSection();
 		userProfilePage.sendPathOfImageToProfilePicture();
 		userProfilePage.clickOnProfileUpdateButton();

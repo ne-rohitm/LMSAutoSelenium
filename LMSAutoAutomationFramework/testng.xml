@@ -13,14 +13,19 @@
 <!-- 			</class> -->
 <!-- 			<class name="com.lmsauto.tests.HRNewUserCreationTest" /> -->
 <!-- 			<class name="com.lmsauto.tests.HRQuickUserTest"></class> -->
-			<class name="com.lmsauto.tests.UserProfileTest">
-				<methods>
+<!-- 			<class name="com.lmsauto.tests.UserProfileTest"> -->
+<!-- 				<methods> -->
 <!-- 					<include name="userProfileTest"></include> -->
 <!-- 					<include name="userProfileValidationTest"></include> -->
-					<include name="validateAndUpdateProfilePicureTest"></include>
+<!-- 					<include name="validateAndUpdateProfilePicureTest"></include> -->
+<!-- 				</methods> -->
+<!-- 			</class> -->
+			<class name="com.lmsauto.tests.HRListUsersUserPermissionsTest">
+				<methods>
+					<include name="userPermissionsOffTest"></include>
+					<include name="userPermissionsOnTest"></include>
 				</methods>
 			</class>
-			<class name="com.lmsauto.tests.HRListUsersUserPermissionsTest"></class>
 		</classes>
 	</test> <!-- testng_pom -->
 </suite> <!-- Suite -->

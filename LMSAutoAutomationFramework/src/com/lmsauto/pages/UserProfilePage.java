@@ -127,7 +127,7 @@ public class UserProfilePage {
 	}
 	
 	public void sendPathOfImageToProfilePicture() throws BiffException, IOException {
-		driver.findElement(By.xpath("profilePicture")).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 3, "UserProfilePage"));
+		driver.findElement(By.xpath(prop.getProperty("profilePicture"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 3, "UserProfilePage"));
 	}
 	
 	public void validateProfileSection() throws BiffException, IOException, InterruptedException {
