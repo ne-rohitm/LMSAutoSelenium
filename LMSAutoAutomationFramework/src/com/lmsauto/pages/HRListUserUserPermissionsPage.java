@@ -4,9 +4,8 @@ import java.io.IOException;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
 import com.lmsauto.classes.Commons;
@@ -19,7 +18,6 @@ public class HRListUserUserPermissionsPage {
 	ReadObjectRepository ror = new ReadObjectRepository();
 	ReadExcelData readExcelData = new ReadExcelData(); 
 	Properties prop;
-	
 	
 	public HRListUserUserPermissionsPage(WebDriver driver) throws IOException {
 		this.driver = driver;
@@ -78,21 +76,27 @@ public class HRListUserUserPermissionsPage {
 		driver.findElement(By.xpath(prop.getProperty("servicePermissionsLink"))).click();
 	}
 	
+	public void verifyHrPermissionsLinkPresent() {
+		Assert.assertTrue(driver.findElements(By.xpath(prop.getProperty("hrPermissionsLink"))).size() < 1);
+		System.out.println("Now HR Link is not Visible");
+	}
+	
 	public void navigateToUserPermissionsPage() throws IOException, InterruptedException {
-		SideBarPage sideBarPage = new SideBarPage(driver);
-		Commons.waitFor(5000);
-		WebElement hr = sideBarPage.clickOnHR();
-		Actions ac = new Actions(driver);
-		ac.moveToElement(hr).click().build().perform();
-		Commons.waitFor(500);
-		WebElement userManagement = sideBarPage.clickOnHRUserManagement();
-		ac.moveToElement(userManagement).click().build().perform();
-		Commons.waitFor(500);
-		WebElement listUsers = sideBarPage.clickOnHRListUsers();
-		ac.moveToElement(listUsers).click().build().perform();
-		Commons.waitFor(500);
 		HRListUsersPage hrListUsersPage = new HRListUsersPage(driver);
-		hrListUsersPage.clickOnUserPermissionsPage();	
+		Commons.waitFor(1000);
+		hrListUsersPage.navigateToHrListUsersPage();
+		Commons.waitFor(1000);
+		hrListUsersPage.clearDataOfRecordsPerPageTextField();
+		hrListUsersPage.sendDataToRecordsPerPageTextField("1");
+		String total_records = hrListUsersPage.getPaginationPageCount();
+		System.out.println("Total Records= " + total_records);
+		int total_rec = Integer.parseInt(total_records);
+		hrListUsersPage.clearDataOfRecordsPerPageTextField();
+		hrListUsersPage.sendDataToRecordsPerPageTextField(total_rec+"");	
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+	    jse.executeScript("scrollBy(0,25000)");
+	    Commons.waitFor(5000);
+		hrListUsersPage.clickOnUserPermissionsPage(total_rec);
 	}
 	
 	public void verifyCountOfOnPermissions() throws InterruptedException {	

@@ -19,6 +19,8 @@ public class HRListUsersUserPermissionsTest {
 	WebDriver driver = pdi.getDriverInstance();
 	@Test
 	public void userPermissionsOffTest() throws InterruptedException, IOException, BiffException {
+		
+		
 		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
 		hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
 		
@@ -90,6 +92,8 @@ public class HRListUsersUserPermissionsTest {
 		System.out.println("off13");
 		
 		driver.navigate().refresh();
+		
+		
 	}
 	
 	@Test
