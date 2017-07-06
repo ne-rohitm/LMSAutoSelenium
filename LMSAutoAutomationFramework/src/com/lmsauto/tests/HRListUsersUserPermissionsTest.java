@@ -10,6 +10,7 @@ import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ProvideDriverInstance;
 import com.lmsauto.pages.HRListUserUserPermissionsPage;
 import com.lmsauto.pages.LoginPage;
+import com.lmsauto.pages.SideBarPage;
 
 import jxl.read.biff.BiffException;
 
@@ -19,8 +20,6 @@ public class HRListUsersUserPermissionsTest {
 	WebDriver driver = pdi.getDriverInstance();
 	@Test
 	public void userPermissionsOffTest() throws InterruptedException, IOException, BiffException {
-		
-		
 		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
 		hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
 		
@@ -92,16 +91,25 @@ public class HRListUsersUserPermissionsTest {
 		System.out.println("off13");
 		
 		driver.navigate().refresh();
-		
-		
+		SideBarPage sideBarPage = new SideBarPage(driver);
+		sideBarPage.verifyHrLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyDashboardLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifySalesLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyLmsAutoLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyVehiclePricingLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyResponseLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyMarketingLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyAccountsLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyReportsLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyCareersLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyCloudTelephonyLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyMyStorageLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyServiceLinkIsPresentOrNotOnSideBar();
 	}
 	
 	@Test
 	public void userPermissionsOnTest() throws InterruptedException, IOException, BiffException {
 		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
-		hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
-		
-		hrListUserUserPermissionsPage.verifyCountOfOnPermissions();
 		Commons.waitFor(500);
 		hrListUserUserPermissionsPage.TurnOnPermissionsOfLmsAutoSection();
 		hrListUserUserPermissionsPage.clickOnLMSAutoPermissionsLink();
@@ -166,6 +174,78 @@ public class HRListUsersUserPermissionsTest {
 		hrListUserUserPermissionsPage.TurnOnPermissionsOfServiceSection();
 		hrListUserUserPermissionsPage.clickOnServicePermissionsLink();
 		System.out.println("on13");
+		
+		driver.navigate().refresh();
+		SideBarPage sideBarPage = new SideBarPage(driver);
+		sideBarPage.verifyHrLinkIsPresentOrNotOnSideBar();	
+		sideBarPage.verifyDashboardLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifySalesLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyLmsAutoLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyVehiclePricingLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyResponseLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyMarketingLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyAccountsLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyReportsLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyCareersLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyCloudTelephonyLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyMyStorageLinkIsPresentOrNotOnSideBar();
+		sideBarPage.verifyServiceLinkIsPresentOrNotOnSideBar();
+	}
+	
+	@Test
+	public void separatePermissionsMakingOffTest() throws IOException, InterruptedException {
+		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
+		hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
+		Commons.waitFor(500);		
+		hrListUserUserPermissionsPage.clickOnHrPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnHrRoleManagementPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnHrSalaryManagementPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnHrPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnDashboardPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnDashboardMyRequestsPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnDashboardMySettingsPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnDashboardRequestLeavePermissionsLink();
+		hrListUserUserPermissionsPage.clickOnDashboardPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnLMSAutoPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnLmsAutoApIManagementPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnLmsAutoContactUsPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnLmsAutoSMSAndEmailSettingsPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnLMSAutoPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnSalesPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnSalesMyLostEnquiriesPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnSalesMyReassignedEnquiriesPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnSalesPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnVehiclePricingPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnVehiclePricingAddPricingPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnVehiclePricingPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnResponsePermissionsLink();
+		hrListUserUserPermissionsPage.clickOnResponseTestimonialsPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnResponseWebsiteVisitorsPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnResponsePermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnCareersPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnCareersCreateJobPostingPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnCareersPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnCloudTelephonyPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnCloudTelephonyManageVirtualNumbersPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnCloudTelephonyPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnMyStoragePermissionsLink();
+		hrListUserUserPermissionsPage.clickOnMyStorageStorageListPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnMyStoragePermissionsLink();
+		
+		driver.navigate().refresh();
+		SideBarPage sideBarPage = new SideBarPage(driver);
+		sideBarPage.clickOnDashboard();
+		sideBarPage.verifyDashboardRequestLeaveIsPresentOrNotOnSideBar();
+		sideBarPage.verifyDashboardMyRequestsIsPresentOrNotOnSideBar();
+		sideBarPage.verifyDashboardMySettingsIsPresentOrNotOnSideBar();
 	}
 	
 	@BeforeClass

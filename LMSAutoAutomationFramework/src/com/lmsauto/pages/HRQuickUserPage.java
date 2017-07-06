@@ -53,7 +53,6 @@ public class HRQuickUserPage {
 		clickOnCreateButton();
 		Commons.waitFor(1000);
 		Assert.assertEquals("Quick User Personal Mobile No. [Exists] is not Validated", "Number already exists enter different number", driver.findElement(By.xpath(prop.getProperty("quickUserPersonalMobileNumberValidationMsg"))).getText());
-		
 		Commons.waitFor(1000);
 		driver.findElement(By.xpath(prop.getProperty("quickUserPersonalEmail"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 9, "QuickUserPage"));
 		clickOnCreateButton();
@@ -62,12 +61,7 @@ public class HRQuickUserPage {
 		driver.findElement(By.xpath(prop.getProperty("quickUserPersonalEmail"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 10, "QuickUserPage"));
 		clickOnCreateButton();
 		Assert.assertEquals("Quick User Personal Email [Exists] is not Validated", "Email address exist. Please enter another email address!", driver.findElement(By.xpath(prop.getProperty("quickUserPersonalEmailExistValidationMsg"))).getText());
-		
-		
-		
 		System.out.println("All required fields on Quick User page are Validated successfully.....");
-		
-		
 	}
 	
 	public void selectQuickUserTitle() throws BiffException, IOException {
