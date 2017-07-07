@@ -35,6 +35,18 @@ public class SideBarPage {
 		return driver.findElement(By.xpath(prop.getProperty("hrNewUser")));
 	}
 	
+	public WebElement clickOnHrRoleManagement() {
+		return driver.findElement(By.xpath(prop.getProperty("hrRoleManagement")));
+	}
+	
+	public WebElement clickOnHrRoleManagementCreateRole() {
+		return driver.findElement(By.xpath(prop.getProperty("hrCreateRole")));
+	}
+	
+	public WebElement clickOnHrRoleManagementManageRole() {
+		return driver.findElement(By.xpath(prop.getProperty("hrManageRole")));
+	}
+	
 	public WebElement clickOnHRQuickUser() {
 		return driver.findElement(By.xpath(prop.getProperty("hrQuickUser")));
 	}
