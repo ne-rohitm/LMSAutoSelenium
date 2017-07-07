@@ -75,5 +75,6 @@ public class LoginPage {
 		loginPage.sendDataToPasswordTextField(readExcelData.getCellDataWithRowColAndSheetName(1, 1, "LoginPage"));
 		Commons.waitFor(1000);
 		loginPage.clickOnLoginButton();
+		Commons.waitFor(1000);
 	}
 }

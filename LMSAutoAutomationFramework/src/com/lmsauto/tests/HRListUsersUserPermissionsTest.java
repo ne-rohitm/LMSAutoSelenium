@@ -19,12 +19,16 @@ public class HRListUsersUserPermissionsTest {
 	ProvideDriverInstance pdi = new ProvideDriverInstance();
 	WebDriver driver = pdi.getDriverInstance();
 	@Test
+	public void verifyPermissionsCountIsSame() throws IOException, InterruptedException {
+		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
+		hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
+		hrListUserUserPermissionsPage.verifyCountOfOnPermissions();
+	}
+	@Test
 	public void userPermissionsOffTest() throws InterruptedException, IOException, BiffException {
 		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
 		hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
-		
-		hrListUserUserPermissionsPage.verifyCountOfOnPermissions();
-		
+
 		Commons.waitFor(500);
 		hrListUserUserPermissionsPage.TurnOffPermissionsOfLmsAutoSection();
 		hrListUserUserPermissionsPage.clickOnLMSAutoPermissionsLink();
@@ -195,7 +199,7 @@ public class HRListUsersUserPermissionsTest {
 	@Test
 	public void separatePermissionsMakingOffTest() throws IOException, InterruptedException {
 		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
-		hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
+		//hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
 		Commons.waitFor(500);		
 		hrListUserUserPermissionsPage.clickOnHrPermissionsLink();
 		hrListUserUserPermissionsPage.clickOnHrRoleManagementPermissionsLink();
@@ -242,10 +246,31 @@ public class HRListUsersUserPermissionsTest {
 		
 		driver.navigate().refresh();
 		SideBarPage sideBarPage = new SideBarPage(driver);
-		sideBarPage.clickOnDashboard();
+		
 		sideBarPage.verifyDashboardRequestLeaveIsPresentOrNotOnSideBar();
 		sideBarPage.verifyDashboardMyRequestsIsPresentOrNotOnSideBar();
 		sideBarPage.verifyDashboardMySettingsIsPresentOrNotOnSideBar();
+		
+		sideBarPage.verifyHrRoleManagementIsPresentOrNotOnSideBar();
+		sideBarPage.verifyHrSalaryManagementIsPresentOrNotOnSideBar();
+		
+		sideBarPage.verifyLmsAutoContactUsIsPresentOrNotOnSideBar();
+		sideBarPage.verifyLmsAutoApiMangementIsPresentOrNotOnSideBar();
+		sideBarPage.verifyLmsAutoSMSAndEmailSettingsIsPresentOrNotOnSideBar();
+		
+		sideBarPage.verifySalesMyLostEnquiriesIsPresentOrNotOnSideBar();
+		sideBarPage.verifySalesMyReassignedEnquiriesIsPresentOrNotOnSideBar();
+		
+		sideBarPage.verifyVehiclePricingAddPricingIsPresentOrNotOnSideBar();
+		
+		sideBarPage.verifyResponseTestimonialsIsPresentOrNotOnSideBar();
+		sideBarPage.verifyResponseWebsiteVisitorsIsPresentOrNotOnSideBar();
+		
+		sideBarPage.verifyCareersCreateJobPostingsIsPresentOrNotOnSideBar();
+		
+		sideBarPage.verifyCloudTelephonyManageVirtualNumbersIsPresentOrNotOnSideBar();
+		
+		sideBarPage.verifyMyStorageStorageListIsPresentOrNotOnSideBar();
 	}
 	
 	@BeforeClass

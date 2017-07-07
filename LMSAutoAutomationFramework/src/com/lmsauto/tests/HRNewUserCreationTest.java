@@ -94,7 +94,7 @@ public class HRNewUserCreationTest {
 		HRListUsersPage hrListUsersPage = new HRListUsersPage(driver);
 		hrListUsersPage.navigateToHrListUsersPage();
 		Commons.waitFor(1000);
-		hrListUsersPage.getDataOfNewlyAddedEnquiry();	
+		hrListUsersPage.getDataOfNewlyAddedUser();	
 	}
 
 	@BeforeClass

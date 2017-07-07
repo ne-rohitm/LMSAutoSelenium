@@ -44,7 +44,7 @@ public class HRListUsersPage {
 		return text;	
 	}
 	
-	public  void getDataOfNewlyAddedEnquiry() throws BiffException, IOException {
+	public  void getDataOfNewlyAddedUser() throws BiffException, IOException {
 		
 		String arr[] = new String[7];
 		for(int i = 1; i <7; i++) {
