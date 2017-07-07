@@ -51,7 +51,7 @@ public class HRQuickUserPage {
 		driver.findElement(By.xpath(prop.getProperty("quickUserPersonalMobileNumber"))).clear();
 		driver.findElement(By.xpath(prop.getProperty("quickUserPersonalMobileNumber"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 12, "QuickUserPage"));
 		clickOnCreateButton();
-		Commons.waitFor(1000);
+		Commons.waitFor(10000);
 		Assert.assertEquals("Quick User Personal Mobile No. [Exists] is not Validated", "Number already exists enter different number", driver.findElement(By.xpath(prop.getProperty("quickUserPersonalMobileNumberValidationMsg"))).getText());
 		Commons.waitFor(1000);
 		driver.findElement(By.xpath(prop.getProperty("quickUserPersonalEmail"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 9, "QuickUserPage"));

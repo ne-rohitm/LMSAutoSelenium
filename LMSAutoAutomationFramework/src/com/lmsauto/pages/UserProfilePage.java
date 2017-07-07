@@ -93,7 +93,7 @@ public class UserProfilePage {
 		Assert.assertEquals("Confirm Password is not Validated", "Confirm Password cannot be blank.", driver.findElement(By.xpath(prop.getProperty("confirmPasswordValidationMsg"))).getText());
 		Commons.waitFor(100);
 		driver.findElement(By.xpath(prop.getProperty("oldPassword"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 2, "UserProfilePage"));
-		Commons.waitFor(100);
+		Commons.waitFor(5000);
 		Assert.assertEquals("Old Password [Matching] is not Validated", "Password could not be matched", driver.findElement(By.xpath(prop.getProperty("oldPasswordMatchValidationMsg"))).getText());
 		Commons.waitFor(100);
 		driver.findElement(By.xpath(prop.getProperty("newPassword"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 0, "UserProfilePage"));

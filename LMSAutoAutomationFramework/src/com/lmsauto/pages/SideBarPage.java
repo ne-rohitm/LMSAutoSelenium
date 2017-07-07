@@ -186,20 +186,110 @@ public class SideBarPage {
 		if(driver.findElements(By.xpath(prop.getProperty("dashboardRequestLeave"))).size() < 1)
 			System.out.println("Now Dashboard Request Leave link is not present in sidebar");
 		else 
-			System.out.println("Dashboard Request Leave is present in sidebar");
+			System.out.println("Dashboard Request Leave link is present in sidebar");
 	}
 	
 	public void verifyDashboardMySettingsIsPresentOrNotOnSideBar() {
 		if(driver.findElements(By.xpath(prop.getProperty("dashboardMySettings"))).size() < 1)
 			System.out.println("Now Dashboard My Settings link is not present in sidebar");
 		else 
-			System.out.println("Dashboard My Settings is present in sidebar");
+			System.out.println("Dashboard My Settings link is present in sidebar");
 	}
 	
 	public void verifyDashboardMyRequestsIsPresentOrNotOnSideBar() {
 		if(driver.findElements(By.xpath(prop.getProperty("dashboardMyRequests"))).size() < 1)
 			System.out.println("Now Dashboard My Requests link is not present in sidebar");
 		else 
-			System.out.println("Dashboard My Requests is present in sidebar");
+			System.out.println("Dashboard My Requests link is present in sidebar");
+	}
+	public void verifyHrRoleManagementIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("hrRoleManagement"))).size() < 1)
+			System.out.println("Now Hr Role Management link is not present in sidebar");
+		else 
+			System.out.println("Hr Role Management link is present in sidebar");
+	}
+	
+	public void verifyHrSalaryManagementIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("hrSalaryManagement"))).size() < 1)
+			System.out.println("Now Hr Salary Management link is not present in sidebar");
+		else 
+			System.out.println("Hr Salary Management link is present in sidebar");
+	}
+	
+	public void verifyLmsAutoApiMangementIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("lmsAutoApiMangement"))).size() < 1)
+			System.out.println("Now Lms Auto Api Mangement link is not present in sidebar");
+		else 
+			System.out.println("Lms Auto Api Mangement link is present in sidebar");
+	}
+	
+	public void verifyLmsAutoContactUsIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("lmsAutoContactUs"))).size() < 1)
+			System.out.println("Now Lms Auto Contact Us link is not present in sidebar");
+		else 
+			System.out.println("Lms Auto Api Contact Us link is present in sidebar");
+	}
+	
+	public void verifyLmsAutoSMSAndEmailSettingsIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("lmsAutoSMSAndEmailSettings"))).size() < 1)
+			System.out.println("Now Lms Auto SMS And Email Settings link is not present in sidebar");
+		else 
+			System.out.println("Lms Auto SMS And Email Settings link is present in sidebar");
+	}
+	
+	public void verifySalesMyLostEnquiriesIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("salesMyLostEnquiries"))).size() < 1)
+			System.out.println("Now Sales My Lost Enquiries link is not present in sidebar");
+		else 
+			System.out.println("Sales My Lost Enquiries link is present in sidebar");
+	}
+	
+	public void verifySalesMyReassignedEnquiriesIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("salesMyReassignedEnquiries"))).size() < 1)
+			System.out.println("Now Sales My Reassigned Enquiries link is not present in sidebar");
+		else 
+			System.out.println("Sales My Reassigned Enquiries link is present in sidebar");
+	}
+	
+	public void verifyVehiclePricingAddPricingIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("vehiclePricingAddPricing"))).size() < 1)
+			System.out.println("Now Vehicle Pricing Add Pricing link is not present in sidebar");
+		else 
+			System.out.println("Now Vehicle Pricing Add Pricing link is present in sidebar");
+	}
+	
+	public void verifyResponseTestimonialsIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("responseTestimonials"))).size() < 1)
+			System.out.println("Now Response Testimonials link is not present in sidebar");
+		else 
+			System.out.println("Response Testimonials link is present in sidebar");
+	}
+	
+	public void verifyResponseWebsiteVisitorsIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("responseWebsiteVisitors"))).size() < 1)
+			System.out.println("Now Response Website Visitors link is not present in sidebar");
+		else 
+			System.out.println("Response Website Visitors link is present in sidebar");
+	}
+	
+	public void verifyCareersCreateJobPostingsIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("careersCreateJobPostings"))).size() < 1)
+			System.out.println("Now Careers Create Job Postings link is not present in sidebar");
+		else 
+			System.out.println("Careers Create Job Postings link is present in sidebar");
+	}
+	
+	public void verifyCloudTelephonyManageVirtualNumbersIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("cloudTelephonyManageVirtualNumbers"))).size() < 1)
+			System.out.println("Now Cloud Telephony Manage Virtual Numbers link is not present in sidebar");
+		else 
+			System.out.println("Cloud Telephony Manage Virtual Numbers link is present in sidebar");
+	}
+	
+	public void verifyMyStorageStorageListIsPresentOrNotOnSideBar() {
+		if(driver.findElements(By.xpath(prop.getProperty("myStorageStorageList"))).size() < 1)
+			System.out.println("Now My Storage Storage List link is not present in sidebar");
+		else 
+			System.out.println("My Storage Storage List link is present in sidebar");
 	}
 }

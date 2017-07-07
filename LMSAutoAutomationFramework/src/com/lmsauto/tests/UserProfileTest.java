@@ -34,7 +34,9 @@ public class UserProfileTest {
 		UserProfilePage userProfilePage = new UserProfilePage(driver);
 		userProfilePage.compareUserNames();
 		userProfilePage.navigateToUserProfile();
+		Commons.waitFor(500);
 		userProfilePage.clickOnChangePasswordUpdateButton();
+		Commons.waitFor(500);
 		userProfilePage.validateChangePasswordSection();
 		userProfilePage.sendDataToOldPasswordTextField();
 		userProfilePage.sendDataToNewPasswordTextField();
