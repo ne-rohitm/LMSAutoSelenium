@@ -2,11 +2,10 @@ package com.lmsauto.pages;
 
 import java.io.IOException;
 import java.util.Properties;
-
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ReadExcelData;
@@ -61,7 +60,7 @@ public class LoginPage {
 	}
 	
 	public void verifyRedirectionToTheLoginPage() throws BiffException, IOException {
-		Assert.assertEquals("User is Not Redirected to the Login Page", driver.getCurrentUrl(), readExcelData.getCellDataWithRowColAndSheetName(0, 2, "LoginPage"));
+		Assert.assertEquals(readExcelData.getCellDataWithRowColAndSheetName(0, 2, "LoginPage"), driver.getCurrentUrl(), "User is Not Redirected to the Login Page");
 		System.out.println("User is redirected to the login page");
 	}
 	

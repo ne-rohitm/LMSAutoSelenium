@@ -34,6 +34,58 @@ public class HRRoleManagementCreateRolePage {
 		driver.findElement(By.xpath(prop.getProperty("submitButton"))).click();
 	}
 	
+	public void clickOnDashboardPermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("dashboardPermissionsLink"))).click();
+	}
+	
+	public void clickOnHrPermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("hrPermissionsLink"))).click();
+	}
+	
+	public void clickOnLMSAutoPermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("lmsAutoPermissionsLink"))).click();
+	}
+	
+	public void clickOnSalesPermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("salesPermissionsLink"))).click();
+	}
+	
+	public void clickOnVehiclePricingPermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("vehiclePricingPermissionsLink"))).click();
+	}
+	
+	public void clickOnResponsePermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("responsePermissionsLink"))).click();
+	}
+	
+	public void clickOnMarketingPermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("marketingPermissionsLink"))).click();
+	}
+	
+	public void clickOnAccountsPermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("accountsPermissionsLink"))).click();
+	}
+	
+	public void clickOnReportsPermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("reportsPermissionsLink"))).click();
+	}
+	
+	public void clickOnCareersPermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("careersPermissionsLink"))).click();
+	}
+	
+	public void clickOnCloudTelephonyPermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("cloudTelephonyPermissionsLink"))).click();
+	}
+	
+	public void clickOnMyStoragePermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("myStoragePermissionsLink"))).click();
+	}
+	
+	public void clickOnServicePermissionsLink() {
+		driver.findElement(By.xpath(prop.getProperty("servicePermissionsLink"))).click();
+	}
+	
 	public void TurnOnPermissionsOfLmsAutoSection() throws InterruptedException {
 		Commons.waitFor(100);
 		driver.findElement(By.xpath(prop.getProperty("lmsAutoPermissionsLink"))).click();
@@ -249,5 +301,15 @@ public class HRRoleManagementCreateRolePage {
 	
 	public void validateRequiredFieldsOnCreateRolePage() {
 		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("defineRoleNameValidationMsg"))).getText(), "Please enter define role name.", "Define Role text field is not Validated");	
+	}
+	
+	public int getCountOfOnPermissionsOnCreateRolePage() throws InterruptedException {
+		Commons.waitFor(1000);
+		int countParent = driver.findElements(By.xpath(prop.getProperty("childOne"))).size();	
+		int countSub = driver.findElements(By.xpath(prop.getProperty("childTwo"))).size();	
+		int CountSubToSub = driver.findElements(By.xpath(prop.getProperty("childThree"))).size();
+		int countGot = countParent+countSub+CountSubToSub;
+		System.out.println("On Permissions found are "+countGot);
+		return countGot;
 	}
 }

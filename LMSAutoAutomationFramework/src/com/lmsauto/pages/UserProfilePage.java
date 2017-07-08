@@ -3,12 +3,13 @@ package com.lmsauto.pages;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.junit.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.Color;
+import org.testng.Assert;
 
 import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ReadExcelData;
@@ -50,7 +51,7 @@ public class UserProfilePage {
 			String UpdatehexOne = Color.fromString(UpdateColorOne).asHex();
 			System.out.println("colorUpdatebtn " + UpdatehexOne);
 
-			Assert.assertEquals("Chosen Color is not applied to the application", hexOne, UpdatehexOne);
+			Assert.assertEquals(hexOne, UpdatehexOne, "Chosen Color is not applied to the application");
 			System.out.println("Chosen Color is applied to the application");
 		}
 	}
@@ -88,18 +89,18 @@ public class UserProfilePage {
 	
 	public void validateChangePasswordSection() throws BiffException, IOException, InterruptedException {
 		System.out.println("Validating the required fields for Change Password.....");
-		Assert.assertEquals("Old Password is not Validated", "Old password cannot be blank.", driver.findElement(By.xpath(prop.getProperty("oldPasswordValidationMsg"))).getText());
-		Assert.assertEquals("New Password is not Validated", "New Password cannot be blank.", driver.findElement(By.xpath(prop.getProperty("newPasswordValidationMsg"))).getText());
-		Assert.assertEquals("Confirm Password is not Validated", "Confirm Password cannot be blank.", driver.findElement(By.xpath(prop.getProperty("confirmPasswordValidationMsg"))).getText());
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("oldPasswordValidationMsg"))).getText(), "Old password cannot be blank.", "Old Password is not Validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("newPasswordValidationMsg"))).getText(), "New Password cannot be blank.", "New Password is not Validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("confirmPasswordValidationMsg"))).getText(), "Confirm Password cannot be blank.", "Confirm Password is not Validated");
 		Commons.waitFor(100);
 		driver.findElement(By.xpath(prop.getProperty("oldPassword"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 2, "UserProfilePage"));
 		Commons.waitFor(5000);
-		Assert.assertEquals("Old Password [Matching] is not Validated", "Password could not be matched", driver.findElement(By.xpath(prop.getProperty("oldPasswordMatchValidationMsg"))).getText());
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("oldPasswordMatchValidationMsg"))).getText(), "Password could not be matched", "Old Password [Matching] is not Validated");
 		Commons.waitFor(100);
 		driver.findElement(By.xpath(prop.getProperty("newPassword"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 0, "UserProfilePage"));
 		driver.findElement(By.xpath(prop.getProperty("confirmPassword"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 1, "UserProfilePage"));
 		Commons.waitFor(100);
-		Assert.assertEquals("Confirm Password[Matching] is not Validated", "Must match new password and confirm password.", driver.findElement(By.xpath(prop.getProperty("confirmPasswordMatchValidationMsg"))).getText());
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("confirmPasswordMatchValidationMsg"))).getText(), "Must match new password and confirm password.", "Confirm Password[Matching] is not Validated");
 		System.out.println("All required fields on Change Password page are Validated successfully.....");	
 	}
 	public void clickOnSignOutLink() throws InterruptedException {
@@ -118,7 +119,7 @@ public class UserProfilePage {
 		Commons.waitFor(5000);
 		String text = driver.findElement(By.xpath(prop.getProperty("profileUserNameMobileNumber"))).getText();
 		String actualUserName = readExcelData.getCellDataWithRowColAndSheetName(0, 1, "LoginPage");	
-		Assert.assertEquals("User Name on Profile page and change password page is wrong !!", text, actualUserName);
+		Assert.assertEquals(actualUserName, text, "User Name on Profile page and change password page is wrong !!");
 		System.out.println("User Names are matching");
 	}
 	
@@ -131,6 +132,6 @@ public class UserProfilePage {
 	}
 	
 	public void validateProfileSection() throws BiffException, IOException, InterruptedException {
-		Assert.assertEquals("Profile Picture is not Validated", "Profile picture cannot be blank.", driver.findElement(By.xpath(prop.getProperty("profilePictureValidationMsg"))).getText());
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("profilePictureValidationMsg"))).getText(),"Profile picture cannot be blank.", "Profile Picture is not Validated");
 	}
 }
