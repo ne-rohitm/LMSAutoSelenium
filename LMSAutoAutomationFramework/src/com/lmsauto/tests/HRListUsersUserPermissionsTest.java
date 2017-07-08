@@ -271,6 +271,53 @@ public class HRListUsersUserPermissionsTest {
 		sideBarPage.verifyCloudTelephonyManageVirtualNumbersIsPresentOrNotOnSideBar();
 		
 		sideBarPage.verifyMyStorageStorageListIsPresentOrNotOnSideBar();
+		
+		//To make all permissions ON :- Further testcases require all permissions On.
+		Commons.waitFor(500);		
+		hrListUserUserPermissionsPage.clickOnHrPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnHrRoleManagementPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnHrSalaryManagementPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnHrPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnDashboardPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnDashboardMyRequestsPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnDashboardMySettingsPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnDashboardRequestLeavePermissionsLink();
+		hrListUserUserPermissionsPage.clickOnDashboardPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnLMSAutoPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnLmsAutoApIManagementPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnLmsAutoContactUsPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnLmsAutoSMSAndEmailSettingsPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnLMSAutoPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnSalesPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnSalesMyLostEnquiriesPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnSalesMyReassignedEnquiriesPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnSalesPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnVehiclePricingPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnVehiclePricingAddPricingPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnVehiclePricingPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnResponsePermissionsLink();
+		hrListUserUserPermissionsPage.clickOnResponseTestimonialsPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnResponseWebsiteVisitorsPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnResponsePermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnCareersPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnCareersCreateJobPostingPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnCareersPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnCloudTelephonyPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnCloudTelephonyManageVirtualNumbersPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnCloudTelephonyPermissionsLink();
+		Commons.waitFor(500);
+		hrListUserUserPermissionsPage.clickOnMyStoragePermissionsLink();
+		hrListUserUserPermissionsPage.clickOnMyStorageStorageListPermissionsLink();
+		hrListUserUserPermissionsPage.clickOnMyStoragePermissionsLink();
+		
+		driver.navigate().refresh();
 	}
 	
 	@BeforeClass

@@ -3,13 +3,14 @@ package com.lmsauto.pages;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.junit.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ReadExcelData;
@@ -185,64 +186,64 @@ public class HRNewUserPage {
 	
 	public void validateRequiredFieldsNewUserStepOne() {
 		System.out.println("Validating the required fields for step 1.....");
-		Assert.assertEquals("Title is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("titleValidationMsg"))).getText());	
-		Assert.assertEquals("FirstName is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("firstNameValidationMsg"))).getText());
-		Assert.assertEquals("LastName is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("lastNameValidationMsg"))).getText());
-		Assert.assertEquals("Gender is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("genderValidationMsg"))).getText());
-		Assert.assertEquals("Physic is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("physicValidationMsg"))).getText());
-		Assert.assertEquals("MaritalStatus is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("maritalStatusValidationMsg"))).getText());
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("titleValidationMsg"))).getText(), "This field is required.", "Title is not validated");			
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("firstNameValidationMsg"))).getText(), "This field is required.", "FirstName is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("lastNameValidationMsg"))).getText(), "This field is required.", "LastName is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("genderValidationMsg"))).getText(), "This field is required.", "Gender is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("physicValidationMsg"))).getText(), "This field is required.", "Physic is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("maritalStatusValidationMsg"))).getText(), "This field is required.","Marital Status is not validated");
 		System.out.println("All required fields on step 1 page are Validated successfully.....");
 	}
 	
 	public void validateRequiredFieldsNewUserStepTwo() throws BiffException, IOException, InterruptedException {
 		System.out.println("Validating the required fields for step 2.....");
-		Assert.assertEquals("Personal Mob No. is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("personalMobileValidationMsg"))).getText());
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("personalMobileValidationMsg"))).getText(), "This field is required.", "Personal Mob No. is not validated");
 		driver.findElement(By.xpath(prop.getProperty("personalMobile"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 23, "NewUserPage"));
 		Commons.waitFor(500);
-		Assert.assertEquals("Personal Mob No. is not validated", "Personal mobile no. must be 10 digits", driver.findElement(By.xpath(prop.getProperty("personalMobileValidationMsg"))).getText());
-		Assert.assertEquals("Personal email is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("personalEmailValidationMsg"))).getText());
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("personalMobileValidationMsg"))).getText(), "Personal mobile no. must be 10 digits", "Personal Mob No. is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("personalEmailValidationMsg"))).getText(), "This field is required.", "Personal email is not validated");
 		driver.findElement(By.xpath(prop.getProperty("personalEmail"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 24, "NewUserPage"));
 		Commons.waitFor(500);
-		Assert.assertEquals("Personal email is not validated", "Invalid email address.", driver.findElement(By.xpath(prop.getProperty("personalEmailValidationMsg"))).getText());
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("personalEmailValidationMsg"))).getText(), "Invalid email address.", "Personal email is not validated");
 		driver.findElement(By.xpath(prop.getProperty("personalEmail"))).clear();
-		Assert.assertEquals("Correspondence Address is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("correspondenceAddressValidationMsg"))).getText());
-		Assert.assertEquals("Correspondence Address State is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("stateValidationMsg"))).getText());
-		Assert.assertEquals("Correspondence Address City is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("cityValidationMsg"))).getText());
-		Assert.assertEquals("Correspondence Address Pin is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("pinValidationMsg"))).getText());
-		Assert.assertEquals("Permanent Address is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("permanentAddressValidationMsg"))).getText());
-		Assert.assertEquals("Permanent Address State is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("permanentAddressStateValidationMsg"))).getText());
-		Assert.assertEquals("Permanent Address City is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("permanentAddressCityValidationMsg"))).getText());
-		Assert.assertEquals("Permanent Address Pin is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("permanentAddressPinValidationMsg"))).getText());
-		Assert.assertEquals("Permanent Address Country is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("permanentAddressCountryValidationMsg"))).getText());
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("correspondenceAddressValidationMsg"))).getText(), "This field is required.", "Correspondence Address is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("stateValidationMsg"))).getText(), "This field is required.", "Correspondence Address State is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("cityValidationMsg"))).getText(), "This field is required.", "Correspondence Address City is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("pinValidationMsg"))).getText(), "This field is required.", "Correspondence Address Pin is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("permanentAddressValidationMsg"))).getText(), "This field is required.", "Permanent Address is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("permanentAddressStateValidationMsg"))).getText(), "This field is required.", "Permanent Address State is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("permanentAddressCityValidationMsg"))).getText(), "This field is required.", "Permanent Address City is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("permanentAddressPinValidationMsg"))).getText(), "This field is required.", "Permanent Address Pin is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("permanentAddressCountryValidationMsg"))).getText(), "This field is required.", "Permanent Address Country is not validated");
 		System.out.println("All required fields on step 2 page are Validated successfully.....");
 	}
 	
 	public void validateRequiredFieldsNewUserStepThree() {
 		System.out.println("Validating the required fields for step 3.....");
-		Assert.assertEquals("Highest Education is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("highestEducationValidationMsg"))).getText());
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("highestEducationValidationMsg"))).getText(), "This field is required.", "Highest Education is not validated");
 		System.out.println("All required fields on step 3 page are Validated successfully.....");
 	}
 	
 	public void validateRequiredFieldsNewUserStepFour() {
 		System.out.println("Validating the required fields for step 4.....");
-		Assert.assertEquals("Department is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("departmentsValidationMsg"))).getText());
-		Assert.assertEquals("Designation is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("designationValidationMsg"))).getText());
-		Assert.assertEquals("Reporting To is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("reportingToValidationMsg"))).getText());
-		Assert.assertEquals("Joining Date is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("joiningDateValidationMsg"))).getText());
-		Assert.assertEquals("Joining Date is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("teamLeadValidationMsg"))).getText());
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("departmentsValidationMsg"))).getText(), "This field is required.", "Department is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("designationValidationMsg"))).getText(), "This field is required.", "Designation is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("reportingToValidationMsg"))).getText(), "This field is required.", "Reporting To is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("joiningDateValidationMsg"))).getText(), "This field is required.", "Joining Date is not validated");
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("teamLeadValidationMsg"))).getText(), "This field is required.", "Joining Date is not validated");
 		System.out.println("All required fields on step 4 page are Validated successfully.....");
 	}
 	
 	public void validateRequiredFieldsNewUserStepFive() {
 		System.out.println("Validating the required fields for step 5.....");
 		if(driver.findElement(By.xpath(prop.getProperty("highSecurityPasswordType"))).getText().equals("Select Password Type")) {
-			Assert.assertEquals("High Security Password type is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("highSecurityPasswordTypeValidationMsg"))).getText());
-			Assert.assertEquals("Show on website is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("displayOnWebsiteValidationMsg"))).getText());
+			Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("highSecurityPasswordTypeValidationMsg"))).getText(), "This field is required.", "High Security Password type is not validated");
+			Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("displayOnWebsiteValidationMsg"))).getText(), "This field is required.", "Show on website is not validated");
 		} else if(driver.findElement(By.xpath(prop.getProperty("highSecurityPasswordType"))).getText().equals("Always Fixed")) {
-			Assert.assertEquals("High Security Password is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("highSecurityPasswordValidationMsg"))).getText());
-			Assert.assertEquals("Show on website is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("displayOnWebsiteValidationMsg"))).getText());
+			Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("highSecurityPasswordValidationMsg"))).getText(), "This field is required.", "High Security Password is not validated");
+			Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("displayOnWebsiteValidationMsg"))).getText(), "This field is required.", "Show on website is not validated");
 		} else {
-			Assert.assertEquals("Show on website is not validated", "This field is required.", driver.findElement(By.xpath(prop.getProperty("displayOnWebsiteValidationMsg"))).getText());
+			Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("displayOnWebsiteValidationMsg"))).getText(), "This field is required.", "Show on website is not validated");
 		}		
 		System.out.println("All required fields on step 5 page are Validated successfully.....");
 	}
