@@ -21,8 +21,7 @@ public class UserProfileTest {
 	WriteDataToExcel writeDataToExcel = new WriteDataToExcel();
 	
 	@Test
-	public void userProfileTest() throws InterruptedException, IOException, BiffException {
-		
+	public void userProfileTest() throws InterruptedException, IOException, BiffException {		
 		UserProfilePage userProfilePage = new UserProfilePage(driver);
 		userProfilePage.compareUserNames();
 		userProfilePage.navigateToUserProfile();

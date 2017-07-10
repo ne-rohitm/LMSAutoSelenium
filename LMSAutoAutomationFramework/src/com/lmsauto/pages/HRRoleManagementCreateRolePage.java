@@ -28,10 +28,11 @@ public class HRRoleManagementCreateRolePage {
 		prop = ror.getObjectRepository();
 	}
 	
-	public void clickOnSubmitButton() {
+	public void clickOnSubmitButton() throws BiffException, IOException {
 		JavascriptExecutor jse = (JavascriptExecutor) driver;
 	    jse.executeScript("scrollBy(0,25000)");
 		driver.findElement(By.xpath(prop.getProperty("submitButton"))).click();
+		System.out.println("Role has been created with Name '"+readExcelData.getCellDataWithRowColAndSheetName(0, 0, "HRCreateRolePage")+"'");
 	}
 	
 	public void clickOnDashboardPermissionsLink() {
@@ -305,11 +306,8 @@ public class HRRoleManagementCreateRolePage {
 	
 	public int getCountOfOnPermissionsOnCreateRolePage() throws InterruptedException {
 		Commons.waitFor(1000);
-		int countParent = driver.findElements(By.xpath(prop.getProperty("childOne"))).size();	
-		int countSub = driver.findElements(By.xpath(prop.getProperty("childTwo"))).size();	
-		int CountSubToSub = driver.findElements(By.xpath(prop.getProperty("childThree"))).size();
-		int countGot = countParent+countSub+CountSubToSub;
-		System.out.println("On Permissions found are "+countGot);
+		int countGot = driver.findElements(By.cssSelector("input.checkbox-slider[type=\"checkbox\"]:checked")).size();
+		System.out.println("On Permissions found on Create Role page are "+countGot);
 		return countGot;
 	}
 }

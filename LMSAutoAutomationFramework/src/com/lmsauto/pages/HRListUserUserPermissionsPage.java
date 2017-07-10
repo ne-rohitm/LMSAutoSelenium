@@ -1,15 +1,21 @@
 package com.lmsauto.pages;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ReadExcelData;
 import com.lmsauto.classes.ReadObjectRepository;
+
+import jxl.read.biff.BiffException;
 
 public class HRListUserUserPermissionsPage {
 
@@ -137,6 +143,15 @@ public class HRListUserUserPermissionsPage {
 	
 	public void clickOnMyStorageStorageListPermissionsLink() {
 		driver.findElement(By.xpath(prop.getProperty("myStorageStorageListPermissionsLink"))).click();
+	}
+	
+	public void verifyCreatedRoleIsShownInTheSelectRoleDropDown() throws BiffException, IOException, InterruptedException {
+		Commons.waitFor(500);
+		Select select = new Select(driver.findElement(By.xpath(prop.getProperty("selectRoleDropDown"))));
+		List<WebElement> list = select.getOptions();
+		String text = list.get(list.size()-1).getText();
+		Assert.assertEquals(text,readExcelData.getCellDataWithRowColAndSheetName(0, 0, "HRCreateRolePage"),"Created Role is not present in list");
+		System.out.println("'"+readExcelData.getCellDataWithRowColAndSheetName(0, 0, "HRCreateRolePage")+"' Role is shown in the 'select role' drop down");
 	}
 	
 	public void navigateToUserPermissionsPage() throws IOException, InterruptedException {

@@ -28,7 +28,12 @@
 					<include name="verifyPermissionsCountIsSame"></include>
 				</methods>
 			</class>
-			<class name="com.lmsauto.tests.HRRoleManagementCreateRoleTest"></class>
+			<class name="com.lmsauto.tests.HRRoleManagementCreateRoleTest">
+			<methods>
+				<include name="createRoleTestAndCheckCreatedRoleInManageRole"></include>
+				<include name="verifyCreatesRoleIsShownInSelectRoleDropDown"></include>
+			</methods>
+			</class>
 		</classes>
 	</test> <!-- testng_pom -->
 </suite> <!-- Suite -->

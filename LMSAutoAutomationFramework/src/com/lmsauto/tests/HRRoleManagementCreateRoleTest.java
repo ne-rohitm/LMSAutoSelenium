@@ -1,22 +1,19 @@
 package com.lmsauto.tests;
 
+import java.io.IOException;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ProvideDriverInstance;
+import com.lmsauto.pages.HRListUserUserPermissionsPage;
 import com.lmsauto.pages.HRRoleManagementCreateRolePage;
 import com.lmsauto.pages.HRRoleManagementManageRolePage;
+import com.lmsauto.pages.HRRoleManagementManageRolePermissionsPage;
 import com.lmsauto.pages.LoginPage;
 
 import jxl.read.biff.BiffException;
-
-import org.testng.annotations.BeforeClass;
-
-import java.io.IOException;
-
-import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 
 public class HRRoleManagementCreateRoleTest {
 	ProvideDriverInstance pdi = new ProvideDriverInstance();
@@ -97,18 +94,29 @@ public class HRRoleManagementCreateRoleTest {
 		hrRoleManagementCreateRolePage.clickOnServicePermissionsLink();
 		System.out.println("on13");
 		Commons.waitFor(1000);
-		int cnt_on_createRole = 150;//hrRoleManagementCreateRolePage.getCountOfOnPermissionsOnCreateRolePage();
+		int cnt_on_createRole = hrRoleManagementCreateRolePage.getCountOfOnPermissionsOnCreateRolePage();
 		hrRoleManagementCreateRolePage.clickOnSubmitButton();
 		Commons.waitFor(1000);
 		
 		HRRoleManagementManageRolePage hrRoleManagementManageRolePage = new HRRoleManagementManageRolePage(driver);
 		hrRoleManagementManageRolePage.navigateToManageRole();
-		hrRoleManagementManageRolePage.moveToManagePermissionsPage();
-		int cnt_shown_on_manageRole = hrRoleManagementManageRolePage.getPermissionsCountShownOnManageRolePage();
+		hrRoleManagementManageRolePage.sendDataToSearchTextField();
+		hrRoleManagementManageRolePage.clickOnUserPermissionsButton();
 		
-		hrRoleManagementManageRolePage.comapreBoththeCounts(cnt_on_createRole, cnt_shown_on_manageRole);
+		HRRoleManagementManageRolePermissionsPage hrRoleManagementManageRolePermissionsPage = new HRRoleManagementManageRolePermissionsPage(driver);
+		hrRoleManagementManageRolePermissionsPage.verifyRoleNameOnManageRolePermissionsPage();
+		int cnt_shown_on_manageRole = hrRoleManagementManageRolePermissionsPage.getPermissionsCountShownOnManageRolePemissionsPage();
+		hrRoleManagementManageRolePermissionsPage.comapreBoththeCounts(cnt_on_createRole, cnt_shown_on_manageRole);	
+		driver.navigate().refresh();
 	}
-
+	
+	@Test
+	public void verifyCreatesRoleIsShownInSelectRoleDropDown() throws IOException, InterruptedException, BiffException {
+		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
+		hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
+		hrListUserUserPermissionsPage.verifyCreatedRoleIsShownInTheSelectRoleDropDown();
+	}
+	
 	@BeforeClass
 	public void beforeClass() throws BiffException, InterruptedException, IOException {
 		LoginPage loginPage = new LoginPage(driver);
@@ -117,6 +125,6 @@ public class HRRoleManagementCreateRoleTest {
 
 	@AfterClass
 	public void afterClass() {
-		//driver.quit();
+		driver.quit();
 	}
 }
