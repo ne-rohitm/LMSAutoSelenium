@@ -40,18 +40,17 @@ public class HRRoleManagementManageRolePage {
 		ac.moveToElement(manageRole).click().build().perform();
 	}
 	
-	public void moveToManagePermissionsPage() throws IOException, InterruptedException, BiffException {
-		this.sendDataToSearchTextField();		
-		this.clickOnUserPermissionsButton();
+	public void sendDataToSearchTextField() throws BiffException, IOException, InterruptedException {
+		Commons.waitFor(1000);
+		driver.findElement(By.xpath(prop.getProperty("mangeRoleSearchTextField"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 0, "HRCreateRolePage"));
+	}
+	
+	public void clickOnUserPermissionsButton() {
+		driver.findElement(By.xpath("//html/body/div[4]/div/div[3]/div[3]/div/div/div/div[2]/table/tbody/tr/td[3]/div[1]/a")).click();						 
 	}
 	
 	public void sendDataToRecordsPerPageTextField(String data) {
 		driver.findElement(By.xpath(prop.getProperty("manageRolePageRecordsPerPageTextBox"))).sendKeys(data);
-	}
-	
-	public void sendDataToSearchTextField() throws BiffException, IOException, InterruptedException {
-		Commons.waitFor(1000);
-		driver.findElement(By.xpath(prop.getProperty("mangeRoleSearchTextField"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 0, "HRCreateRolePage"));
 	}
 	
 	public void clearDataOfRecordsPerPageTextField() {
@@ -65,18 +64,6 @@ public class HRRoleManagementManageRolePage {
 	
 	public void clickOnUserPermissionsPage(int total_cnt) {
 		driver.findElement(By.xpath("//html/body/div[4]/div/div[3]/div[3]/div/div/div/div[2]/table/tbody/tr["+total_cnt+"]/td[3]/div[1]/a")).click();						 
-	}
-	
-	public void clickOnUserPermissionsButton() {
-		driver.findElement(By.xpath("html/body/div[4]/div/div[3]/div[3]/div/div/div/div[2]/table/tbody/tr/td[3]/div[1]/a")).click();						 
-	}
-	
-	public int getPermissionsCountShownOnManageRolePage() throws InterruptedException, IOException {
-		Commons.waitFor(1000);
-		String displayedCount = driver.findElement(By.xpath(prop.getProperty("totalPermissionsCount"))).getText();
-		String array[] = displayedCount.split(":\\s");
-		System.out.println("Displayed count is "+array[1]);
-		return Integer.parseInt(array[1]);
 	}
 	
 	public void comapreBoththeCounts(int cnt_on_createRole, int cnt_shown_on_manageRole) {
