@@ -15,9 +15,9 @@ import com.lmsauto.pages.LoginPage;
 
 import jxl.read.biff.BiffException;
 
-public class HRRoleManagementCreateRoleTest {
-	ProvideDriverInstance pdi = new ProvideDriverInstance();
-	WebDriver driver = pdi.getDriverInstance();
+public class HRRoleManagementCreateRoleTest extends ProvideDriverInstance{
+	
+	private WebDriver driver;
 
 	@Test
 	public void createRoleTestAndCheckCreatedRoleInManageRole() throws IOException, InterruptedException, BiffException {
@@ -119,6 +119,7 @@ public class HRRoleManagementCreateRoleTest {
 	
 	@BeforeClass
 	public void beforeClass() throws BiffException, InterruptedException, IOException {
+		driver = getDriverInstance();
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.loginToTheApplication();
 	}

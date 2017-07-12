@@ -13,10 +13,10 @@ import com.lmsauto.classes.ReadObjectRepository;
 import jxl.read.biff.BiffException;
 
 public class HRRoleManagementManageRolePermissionsPage {
-	WebDriver driver;
-	ReadObjectRepository ror = new ReadObjectRepository();
-	Properties prop;  
-	ReadExcelData readExcelData = new ReadExcelData();
+	private WebDriver driver;
+	private ReadObjectRepository ror = new ReadObjectRepository();
+	private Properties prop;  
+	private ReadExcelData readExcelData = new ReadExcelData();
 	
 	public HRRoleManagementManageRolePermissionsPage(WebDriver driver) throws IOException {
 		this.driver = driver;
@@ -38,8 +38,7 @@ public class HRRoleManagementManageRolePermissionsPage {
 	
 	public void verifyRoleNameOnManageRolePermissionsPage() throws BiffException, IOException, InterruptedException {
 		Commons.waitFor(500);
-		String roleNameSpan = driver.findElement(By.xpath(prop.getProperty("editManageRoleNameOfRole"))).getText();
-		String roleName[] = roleNameSpan.split(":\\s");
-		Assert.assertEquals(readExcelData.getCellDataWithRowColAndSheetName(0, 0, "HRCreateRolePage"), roleName[1]);
+		String roleNameSpan = driver.findElement(By.xpath(prop.getProperty("editManageRoleNameOfRole"))).getAttribute("value");
+		Assert.assertEquals(roleNameSpan, readExcelData.getCellDataWithRowColAndSheetName(0, 0, "HRCreateRolePage"));
 	}
 }

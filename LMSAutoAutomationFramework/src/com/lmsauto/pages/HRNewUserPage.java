@@ -20,10 +20,10 @@ import jxl.read.biff.BiffException;
 
 public class HRNewUserPage {
 	
-	WebDriver driver;
-	ReadObjectRepository ror = new ReadObjectRepository();
-	Properties prop;
-	ReadExcelData readExcelData = new ReadExcelData();
+	private WebDriver driver;
+	private ReadObjectRepository ror = new ReadObjectRepository();
+	private Properties prop;
+	private ReadExcelData readExcelData = new ReadExcelData();
 	
 	public HRNewUserPage(WebDriver driver) throws IOException {
 		this.driver = driver;

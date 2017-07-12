@@ -18,10 +18,11 @@ import com.lmsauto.classes.ReadObjectRepository;
 import jxl.read.biff.BiffException;
 
 public class UserProfilePage {
-	WebDriver driver;
-	ReadObjectRepository ror = new ReadObjectRepository();
-	Properties prop;  
-	ReadExcelData readExcelData = new ReadExcelData();
+	private WebDriver driver;
+	private ReadObjectRepository ror = new ReadObjectRepository();
+	private Properties prop;  
+	private ReadExcelData readExcelData = new ReadExcelData();
+	
 	public UserProfilePage(WebDriver driver) throws IOException {
 		this.driver = driver;
 		prop = ror.getObjectRepository();
@@ -56,7 +57,8 @@ public class UserProfilePage {
 		}
 	}
 	
-	public WebElement clickOnUserProfile() {
+	public WebElement clickOnUserProfile() throws InterruptedException {
+		Commons.waitFor(100);
 		return driver.findElement(By.xpath(prop.getProperty("profileUserName")));
 	}
 	
@@ -68,7 +70,8 @@ public class UserProfilePage {
 		driver.findElement(By.xpath(prop.getProperty("changePasswordUpdateButton"))).click();
 	}
 	
-	public void clickOnProfileUpdateButton() {
+	public void clickOnProfileUpdateButton() throws InterruptedException {
+		Commons.waitFor(100);
 		driver.findElement(By.xpath(prop.getProperty("profileUpdateButton"))).click();
 	}
 	

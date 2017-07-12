@@ -1,17 +1,12 @@
 package com.lmsauto.classes;
 
-import java.util.Properties;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Commons {
-	WebDriver driver;
-	ReadObjectRepository ror = new ReadObjectRepository();
-	Properties prop; 
-	ReadExcelData readExcelData = new ReadExcelData();
+	private WebDriver driver;
 	public Commons(WebDriver driver) {
 		this.driver = driver;
 	}

@@ -20,10 +20,10 @@ import jxl.read.biff.BiffException;
 
 public class LoginPage {
 
-	WebDriver driver;
-	ReadObjectRepository ror = new ReadObjectRepository();
-	ReadExcelData readExcelData = new ReadExcelData(); 
-	Properties prop; 
+	private WebDriver driver;
+	private ReadObjectRepository ror = new ReadObjectRepository();
+	private ReadExcelData readExcelData = new ReadExcelData(); 
+	private Properties prop; 
 	
 	public LoginPage(WebDriver driver) throws IOException {
 		this.driver = driver;

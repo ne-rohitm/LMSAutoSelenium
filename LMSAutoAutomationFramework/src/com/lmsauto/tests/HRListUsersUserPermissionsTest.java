@@ -14,10 +14,10 @@ import com.lmsauto.pages.SideBarPage;
 
 import jxl.read.biff.BiffException;
 
-public class HRListUsersUserPermissionsTest {
+public class HRListUsersUserPermissionsTest extends ProvideDriverInstance {
 
-	ProvideDriverInstance pdi = new ProvideDriverInstance();
-	WebDriver driver = pdi.getDriverInstance();
+	
+	private WebDriver driver;
 	@Test
 	public void verifyPermissionsCountIsSame() throws IOException, InterruptedException {
 		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
@@ -322,6 +322,7 @@ public class HRListUsersUserPermissionsTest {
 	
 	@BeforeClass
 	public void beforeMethod() throws InterruptedException, IOException, BiffException {
+		driver = getDriverInstance();
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.loginToTheApplication();
 	}

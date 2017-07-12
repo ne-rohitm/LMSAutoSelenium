@@ -18,10 +18,10 @@ import jxl.read.biff.BiffException;
 
 public class HRQuickUserPage {
 
-	WebDriver driver;
-	ReadObjectRepository ror = new ReadObjectRepository();
-	Properties prop;
-	ReadExcelData readExcelData = new ReadExcelData();
+	private WebDriver driver;
+	private ReadObjectRepository ror = new ReadObjectRepository();
+	private Properties prop;
+	private ReadExcelData readExcelData = new ReadExcelData();
 	
 	public HRQuickUserPage(WebDriver driver) throws IOException {
 		this.driver = driver;
@@ -51,7 +51,7 @@ public class HRQuickUserPage {
 		driver.findElement(By.xpath(prop.getProperty("quickUserPersonalMobileNumber"))).clear();
 		driver.findElement(By.xpath(prop.getProperty("quickUserPersonalMobileNumber"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 12, "QuickUserPage"));
 		clickOnCreateButton();
-		Commons.waitFor(10000);
+		Commons.waitFor(5000);
 		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("quickUserPersonalMobileNumberValidationMsg"))).getText(), "Number already exists enter different number", "Quick User Personal Mobile No. [Exists] is not Validated");
 		Commons.waitFor(1000);
 		driver.findElement(By.xpath(prop.getProperty("quickUserPersonalEmail"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 9, "QuickUserPage"));
