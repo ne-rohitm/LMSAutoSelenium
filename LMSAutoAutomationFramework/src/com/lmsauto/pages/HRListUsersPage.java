@@ -17,10 +17,11 @@ import jxl.read.biff.BiffException;
 
 public class HRListUsersPage {
 
-	WebDriver driver;
-	ReadObjectRepository ror = new ReadObjectRepository();
-	Properties prop;  
-	ReadExcelData readExcelData = new ReadExcelData();
+	private WebDriver driver;
+	private ReadObjectRepository ror = new ReadObjectRepository();
+	private Properties prop;  
+	private ReadExcelData readExcelData = new ReadExcelData();
+	
 	public HRListUsersPage(WebDriver driver) throws IOException {
 		this.driver = driver;
 		prop = ror.getObjectRepository();

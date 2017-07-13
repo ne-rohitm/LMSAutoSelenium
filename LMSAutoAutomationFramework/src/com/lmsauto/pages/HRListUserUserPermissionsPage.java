@@ -19,10 +19,10 @@ import jxl.read.biff.BiffException;
 
 public class HRListUserUserPermissionsPage {
 
-	WebDriver driver;
-	ReadObjectRepository ror = new ReadObjectRepository();
-	ReadExcelData readExcelData = new ReadExcelData(); 
-	Properties prop;
+	private WebDriver driver;
+	private ReadObjectRepository ror = new ReadObjectRepository();
+	private ReadExcelData readExcelData = new ReadExcelData(); 
+	private Properties prop;
 	
 	public HRListUserUserPermissionsPage(WebDriver driver) throws IOException {
 		this.driver = driver;
@@ -149,9 +149,15 @@ public class HRListUserUserPermissionsPage {
 		Commons.waitFor(500);
 		Select select = new Select(driver.findElement(By.xpath(prop.getProperty("selectRoleDropDown"))));
 		List<WebElement> list = select.getOptions();
-		String text = list.get(list.size()-1).getText();
-		Assert.assertEquals(text,readExcelData.getCellDataWithRowColAndSheetName(0, 0, "HRCreateRolePage"),"Created Role is not present in list");
-		System.out.println("'"+readExcelData.getCellDataWithRowColAndSheetName(0, 0, "HRCreateRolePage")+"' Role is shown in the 'select role' drop down");
+		boolean found = false;
+		for(int i=0; i<list.size(); i++) {
+		    if(list.get(i).getText().equals(readExcelData.getCellDataWithRowColAndSheetName(0, 0, "HRCreateRolePage"))) {
+		        found=true;
+		        break;
+		    }
+		}
+		Assert.assertTrue(found,"Created Role is not present in list");
+		System.out.println("'"+readExcelData.getCellDataWithRowColAndSheetName(0, 0, "HRCreateRolePage")+"' Role is present in 'select role' drop down");
 	}
 	
 	public void navigateToUserPermissionsPage() throws IOException, InterruptedException {

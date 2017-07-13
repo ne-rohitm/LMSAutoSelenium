@@ -10,9 +10,9 @@ import com.lmsauto.classes.ReadObjectRepository;
 
 public class SideBarPage {
 	
-	WebDriver driver;
-	ReadObjectRepository ror = new ReadObjectRepository();
-	Properties prop; 
+	private WebDriver driver;
+	private ReadObjectRepository ror = new ReadObjectRepository();
+	private Properties prop; 
 	
 	public SideBarPage(WebDriver driver) throws IOException {
 		this.driver = driver;

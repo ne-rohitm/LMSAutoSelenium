@@ -16,10 +16,10 @@ import com.lmsauto.classes.ReadObjectRepository;
 import jxl.read.biff.BiffException;
 
 public class HRRoleManagementManageRolePage {	
-	WebDriver driver;
-	ReadObjectRepository ror = new ReadObjectRepository();
-	Properties prop;  
-	ReadExcelData readExcelData = new ReadExcelData();
+	private WebDriver driver;
+	private ReadObjectRepository ror = new ReadObjectRepository();
+	private Properties prop;  
+	private ReadExcelData readExcelData = new ReadExcelData();
 	
 	public HRRoleManagementManageRolePage(WebDriver driver) throws IOException {
 		this.driver = driver;

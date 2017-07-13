@@ -15,9 +15,9 @@ import com.lmsauto.pages.LoginPage;
 
 import jxl.read.biff.BiffException;
 
-public class HRQuickUserTest {
-	ProvideDriverInstance pdi = new ProvideDriverInstance();
-	WebDriver driver = pdi.getDriverInstance();
+public class HRQuickUserTest extends ProvideDriverInstance {
+	
+	private WebDriver driver;
 	
 	@Test
 	public void hrQuickUserCreationTest() throws IOException, InterruptedException, BiffException {
@@ -42,6 +42,7 @@ public class HRQuickUserTest {
 	
 	@BeforeClass
 	public void beforeMethod() throws InterruptedException, IOException, BiffException {
+		driver = getDriverInstance();
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.loginToTheApplication();
 	}

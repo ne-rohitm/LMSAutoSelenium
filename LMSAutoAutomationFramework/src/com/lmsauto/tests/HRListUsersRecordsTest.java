@@ -14,16 +14,15 @@ import com.lmsauto.pages.LoginPage;
 
 import jxl.read.biff.BiffException;
 
-public class HRListUsersRecordsTest {
+public class HRListUsersRecordsTest extends ProvideDriverInstance {
 
-	ProvideDriverInstance pdi = new ProvideDriverInstance();
-	WebDriver driver = pdi.getDriverInstance();
+	private WebDriver driver;
 	//private final static Logger LOGGER = Logger.getLogger(HRListUsersRecordsPerPageCountTest.class.getName());
 	/*
 	 * Counts record per page and comapres with expected count
 	 */
 	@Test(priority = 0)
-	public void pagePerCountTest() throws InterruptedException, IOException, BiffException {
+	public void pagePerCountTest() throws InterruptedException, IOException, BiffException {		
 		HRListUsersPage hrListUsersPage = new HRListUsersPage(driver);
 		Commons.waitFor(1000);
 		hrListUsersPage.navigateToHrListUsersPage();
@@ -72,6 +71,7 @@ public class HRListUsersRecordsTest {
 
 	@BeforeClass
 	public void beforeMethod() throws InterruptedException, IOException, BiffException {
+		driver = getDriverInstance();
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.loginToTheApplication();
 	}

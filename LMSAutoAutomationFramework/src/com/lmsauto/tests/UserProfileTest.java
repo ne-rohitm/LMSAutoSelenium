@@ -7,22 +7,22 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ProvideDriverInstance;
-import com.lmsauto.classes.WriteDataToExcel;
 import com.lmsauto.pages.LoginPage;
 import com.lmsauto.pages.UserProfilePage;
 import jxl.read.biff.BiffException;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
-public class UserProfileTest {
+public class UserProfileTest extends ProvideDriverInstance{
 
-	ProvideDriverInstance pdi = new ProvideDriverInstance();
-	WebDriver driver = pdi.getDriverInstance();
-	WriteDataToExcel writeDataToExcel = new WriteDataToExcel();
 	
+	private WebDriver driver;
 	@Test
-	public void userProfileTest() throws InterruptedException, IOException, BiffException {		
+	public void userProfileTest() throws InterruptedException, IOException, BiffException {	
+		
 		UserProfilePage userProfilePage = new UserProfilePage(driver);
+		Commons.waitFor(1000);
+		driver.navigate().refresh();
 		userProfilePage.compareUserNames();
 		userProfilePage.navigateToUserProfile();
 		Commons.waitFor(800);
@@ -31,6 +31,8 @@ public class UserProfileTest {
 	@Test
 	public void userProfileValidationTest() throws IOException, BiffException, InterruptedException, RowsExceededException, WriteException {
 		UserProfilePage userProfilePage = new UserProfilePage(driver);
+		Commons.waitFor(1000);
+		driver.navigate().refresh();
 		userProfilePage.compareUserNames();
 		userProfilePage.navigateToUserProfile();
 		Commons.waitFor(500);
@@ -52,6 +54,8 @@ public class UserProfileTest {
 	@Test
 	public void validateAndUpdateProfilePicureTest() throws IOException, BiffException, InterruptedException {
 		UserProfilePage userProfilePage = new UserProfilePage(driver);
+		Commons.waitFor(1000);
+		driver.navigate().refresh();
 		userProfilePage.compareUserNames();
 		userProfilePage.navigateToUserProfile();
 		userProfilePage.clickOnProfileUpdateButton();
@@ -62,6 +66,7 @@ public class UserProfileTest {
 	
 	@BeforeClass
 	public void beforeMethod() throws InterruptedException, IOException, BiffException {
+		driver = getDriverInstance();
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.loginToTheApplication();
 	}
