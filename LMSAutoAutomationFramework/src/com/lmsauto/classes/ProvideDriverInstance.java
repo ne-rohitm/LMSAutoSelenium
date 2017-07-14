@@ -7,14 +7,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
 public class ProvideDriverInstance {
-
-//	public WebDriver getDriverInstance() {
-//		System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/Driver/geckodriver.exe");
-//		WebDriver driver = new FirefoxDriver();
-//		driver.get("http://la.netestaws.in/office.php#/login"); 
-//		driver.manage().window().maximize();
-//		return driver;
-//	}
 	
 	private WebDriver driver;
 

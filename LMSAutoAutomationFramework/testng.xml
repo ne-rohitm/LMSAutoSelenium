@@ -3,25 +3,30 @@
 
 <suite name="Suite" parallel="none" thread-count="1" preserve-order="true">
 	<test name="testng_pom">
-		<parameter name="appURL" value="http://la.netestaws.in/office.php#/login"/>
-		<parameter name="browserType" value="firefox"/>
+		<parameter name="appURL" value="http://la.netestaws.in/office.php#/login" />
+		<parameter name="browserType" value="firefox" />
 		<classes>
-<!-- 			<class name="com.lmsauto.classes.ProvideDriverInstance"></class> -->
+			<class name="com.lmsauto.classes.ProvideDriverInstance"></class>
 <!-- 			<class name="com.lmsauto.tests.HRListUsersRecordsTest"> -->
 <!-- 				<methods> -->
-<!-- 					<include name="paginationCountTest"></include>  -->
+<!-- 					<include name="paginationCountTest"></include> -->
 <!-- 					<include name="pagePerCountTest"></include> -->
 <!-- 				</methods> -->
 <!-- 			</class> -->
-<!-- 			<class name="com.lmsauto.tests.HRNewUserCreationTest" /> -->
-<!-- 			<class name="com.lmsauto.tests.HRQuickUserTest"></class> -->
-			<class name="com.lmsauto.tests.UserProfileTest">
+			<class name="com.lmsauto.tests.HRNewUserCreationTest" >
 				<methods>
-<!-- 					<include name="userProfileTest"></include> -->
-<!-- 					<include name="userProfileValidationTest"></include> -->
-					<include name="validateAndUpdateProfilePicureTest"></include>
+					<include name="hrNewUserCreationTest"></include>
+					<include name="hrEditUserTest"></include>
 				</methods>
 			</class>
+<!-- 			<class name="com.lmsauto.tests.HRQuickUserTest"></class> -->
+<!-- 			<class name="com.lmsauto.tests.UserProfileTest"> -->
+<!-- 				<methods> -->
+<!-- 					<include name="userProfileTest"></include> -->
+<!-- 					<include name="userProfileValidationTest"></include> -->
+<!-- 					<include name="validateAndUpdateProfilePicureTest"></include> -->
+<!-- 				</methods> -->
+<!-- 			</class> -->
 <!-- 			<class name="com.lmsauto.tests.HRListUsersUserPermissionsTest"> -->
 <!-- 				<methods> -->
 <!-- 					<include name="userPermissionsOffTest"></include> -->
@@ -31,10 +36,10 @@
 <!-- 				</methods> -->
 <!-- 			</class> -->
 <!-- 			<class name="com.lmsauto.tests.HRRoleManagementCreateRoleTest"> -->
-<!-- 			<methods> -->
-<!-- 				<include name="createRoleTestAndCheckCreatedRoleInManageRole"></include> -->
-<!-- 				<include name="verifyCreatesRoleIsShownInSelectRoleDropDown"></include> -->
-<!-- 			</methods> -->
+<!-- 				<methods> -->
+<!-- 					<include name="createRoleTestAndCheckCreatedRoleInManageRole"></include> -->
+<!-- 					<include name="verifyCreatesRoleIsShownInSelectRoleDropDown"></include> -->
+<!-- 				</methods> -->
 <!-- 			</class> -->
 		</classes>
 	</test> <!-- testng_pom -->
