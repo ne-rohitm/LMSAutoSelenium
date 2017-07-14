@@ -1,22 +1,23 @@
 package com.lmsauto.tests;
 
 import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ProvideDriverInstance;
 import com.lmsauto.pages.LoginPage;
 import com.lmsauto.pages.UserProfilePage;
+
 import jxl.read.biff.BiffException;
 import jxl.write.WriteException;
 import jxl.write.biff.RowsExceededException;
 
-public class UserProfileTest extends ProvideDriverInstance{
-
-	
+public class UserProfileTest extends ProvideDriverInstance {
 	private WebDriver driver;
+	
 	@Test
 	public void userProfileTest() throws InterruptedException, IOException, BiffException {	
 		
@@ -28,6 +29,7 @@ public class UserProfileTest extends ProvideDriverInstance{
 		Commons.waitFor(800);
 		userProfilePage.verifyColorIsApplied();
 	}
+	
 	@Test
 	public void userProfileValidationTest() throws IOException, BiffException, InterruptedException, RowsExceededException, WriteException {
 		UserProfilePage userProfilePage = new UserProfilePage(driver);
@@ -69,10 +71,5 @@ public class UserProfileTest extends ProvideDriverInstance{
 		driver = getDriverInstance();
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.loginToTheApplication();
-	}
-	
-	@AfterClass
-	public void atEnd() {
-		driver.quit();
 	}
 }

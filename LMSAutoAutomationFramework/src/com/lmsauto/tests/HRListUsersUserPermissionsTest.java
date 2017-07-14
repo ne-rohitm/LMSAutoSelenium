@@ -3,9 +3,9 @@ package com.lmsauto.tests;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
 import com.lmsauto.classes.Commons;
 import com.lmsauto.classes.ProvideDriverInstance;
 import com.lmsauto.pages.HRListUserUserPermissionsPage;
@@ -14,16 +14,16 @@ import com.lmsauto.pages.SideBarPage;
 
 import jxl.read.biff.BiffException;
 
-public class HRListUsersUserPermissionsTest extends ProvideDriverInstance {
-
-	
+public class HRListUsersUserPermissionsTest extends ProvideDriverInstance {	
 	private WebDriver driver;
+	
 	@Test
 	public void verifyPermissionsCountIsSame() throws IOException, InterruptedException {
 		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
 		hrListUserUserPermissionsPage.navigateToUserPermissionsPage();
 		hrListUserUserPermissionsPage.verifyCountOfOnPermissions();
 	}
+	
 	@Test
 	public void userPermissionsOffTest() throws InterruptedException, IOException, BiffException {
 		HRListUserUserPermissionsPage hrListUserUserPermissionsPage = new HRListUserUserPermissionsPage(driver);
@@ -325,10 +325,5 @@ public class HRListUsersUserPermissionsTest extends ProvideDriverInstance {
 		driver = getDriverInstance();
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.loginToTheApplication();
-	}
-
-	@AfterClass
-	public void afterClass() {
-		driver.quit();
 	}
 }

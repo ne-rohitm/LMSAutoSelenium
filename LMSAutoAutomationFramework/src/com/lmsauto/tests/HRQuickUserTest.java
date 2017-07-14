@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -16,7 +15,6 @@ import com.lmsauto.pages.LoginPage;
 import jxl.read.biff.BiffException;
 
 public class HRQuickUserTest extends ProvideDriverInstance {
-	
 	private WebDriver driver;
 	
 	@Test
@@ -45,10 +43,5 @@ public class HRQuickUserTest extends ProvideDriverInstance {
 		driver = getDriverInstance();
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.loginToTheApplication();
-	}
-
-	@AfterClass
-	public void afterClass() {
-		driver.quit();
 	}
 }

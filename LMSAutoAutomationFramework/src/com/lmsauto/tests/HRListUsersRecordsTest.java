@@ -3,7 +3,6 @@ package com.lmsauto.tests;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -15,12 +14,12 @@ import com.lmsauto.pages.LoginPage;
 import jxl.read.biff.BiffException;
 
 public class HRListUsersRecordsTest extends ProvideDriverInstance {
-
 	private WebDriver driver;
 	//private final static Logger LOGGER = Logger.getLogger(HRListUsersRecordsPerPageCountTest.class.getName());
 	/*
 	 * Counts record per page and comapres with expected count
 	 */
+	
 	@Test(priority = 0)
 	public void pagePerCountTest() throws InterruptedException, IOException, BiffException {		
 		HRListUsersPage hrListUsersPage = new HRListUsersPage(driver);
@@ -74,10 +73,5 @@ public class HRListUsersRecordsTest extends ProvideDriverInstance {
 		driver = getDriverInstance();
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.loginToTheApplication();
-	}
-
-	@AfterClass
-	public void atEnd() {
-		driver.quit();
 	}
 }

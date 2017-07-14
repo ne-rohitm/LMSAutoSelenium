@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -17,7 +16,6 @@ import com.lmsauto.pages.LoginPage;
 import jxl.read.biff.BiffException;
 
 public class HRNewUserCreationTest extends ProvideDriverInstance {
-	
 	private WebDriver driver;
 	
 	@Test
@@ -97,15 +95,33 @@ public class HRNewUserCreationTest extends ProvideDriverInstance {
 		hrListUsersPage.getDataOfNewlyAddedUser();	
 	}
 
+	@Test
+	public void hrEditUserTest() throws IOException, InterruptedException, BiffException {
+		HRListUsersPage hrListUsersPage = new HRListUsersPage(driver);
+		hrListUsersPage.navigateToHrListUsersPage();
+		Commons.waitFor(1000);
+		hrListUsersPage.clickOnEditNewlyCreatedUser();
+		Commons.waitFor(1000);
+		hrListUsersPage.clickOnEditUserStepOne();
+		hrListUsersPage.verifyEditUserStepOneValues();
+		Commons.waitFor(1000);
+		hrListUsersPage.clickOnEditUserStepTwo();
+		hrListUsersPage.verifyEditUserStepTwoValues();	
+		Commons.waitFor(1000);
+		hrListUsersPage.clickOnEditUserStepThree();
+		hrListUsersPage.verifyEditUserStepThreeValues();
+		Commons.waitFor(1000);
+		hrListUsersPage.clickOnEditUserStepFour();
+		hrListUsersPage.verifyEditUserStepFourValues();
+		Commons.waitFor(1000);
+		hrListUsersPage.clickOnEditUserStepFive();
+		hrListUsersPage.verifyEditUserStepFiveValues();	
+	}
+	
 	@BeforeClass
 	public void beforeMethod() throws InterruptedException, IOException, BiffException {
 		driver = getDriverInstance();
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.loginToTheApplication();
-	}
-
-	@AfterClass
-	public void afterClass() {
-		driver.quit();
 	}
 }
