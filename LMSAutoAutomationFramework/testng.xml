@@ -7,18 +7,19 @@
 		<parameter name="browserType" value="firefox" />
 		<classes>
 			<class name="com.lmsauto.classes.ProvideDriverInstance"></class>
+			<class name="com.lmsauto.tests.LoginTest"></class>	
 <!-- 			<class name="com.lmsauto.tests.HRListUsersRecordsTest"> -->
 <!-- 				<methods> -->
 <!-- 					<include name="paginationCountTest"></include> -->
 <!-- 					<include name="pagePerCountTest"></include> -->
 <!-- 				</methods> -->
 <!-- 			</class> -->
-			<class name="com.lmsauto.tests.HRNewUserCreationTest" >
-				<methods>
-					<include name="hrNewUserCreationTest"></include>
-					<include name="hrEditUserTest"></include>
-				</methods>
-			</class>
+<!-- 			<class name="com.lmsauto.tests.HRNewUserCreationTest" > -->
+<!-- 				<methods> -->
+<!-- 					<include name="hrNewUserCreationTest"></include> -->
+<!-- 					<include name="hrEditUserTest"></include> -->
+<!-- 				</methods> -->
+<!-- 			</class> -->
 <!-- 			<class name="com.lmsauto.tests.HRQuickUserTest"></class> -->
 <!-- 			<class name="com.lmsauto.tests.UserProfileTest"> -->
 <!-- 				<methods> -->
