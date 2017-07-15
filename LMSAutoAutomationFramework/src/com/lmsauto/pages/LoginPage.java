@@ -13,11 +13,6 @@ import com.lmsauto.classes.ReadObjectRepository;
 
 import jxl.read.biff.BiffException;
 
-/* 
- * Used in Commons.java
- * 
- * */
-
 public class LoginPage {
 
 	private WebDriver driver;
@@ -30,12 +25,39 @@ public class LoginPage {
 		prop = ror.getObjectRepository();
 	}
 	
-	public void sendDataToUsernameTextField(String username) {
-		driver.findElement(By.xpath(prop.getProperty("username"))).sendKeys(username);
+	public void sendDataToUsernameTextFieldForRegularLogin() throws BiffException, IOException {
+		driver.findElement(By.xpath(prop.getProperty("username"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 1, "LoginPage"));	
 	}
 	
-	public void sendDataToPasswordTextField(String password) {
-		driver.findElement(By.xpath(prop.getProperty("password"))).sendKeys(password);
+	public void sendDataToPasswordTextFieldForRegularLogin() throws BiffException, IOException {
+		driver.findElement(By.xpath(prop.getProperty("password"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(1, 1, "LoginPage"));
+	}
+	
+	public void sendDataToUsernameTextFieldForLoginTest() throws BiffException, IOException, InterruptedException {
+		this.clickOnNextButton();
+		Commons.waitFor(1000);
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("usernameValidationText"))).getText(), "Username is required.", "Username is required message is not validated");
+		
+		driver.findElement(By.xpath(prop.getProperty("username"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 3, "LoginPage"));
+		Commons.waitFor(1000);
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("usernameValidationText"))).getText(), "Invalid username.", "Invalid Username message is not validated");
+		
+		driver.findElement(By.xpath(prop.getProperty("username"))).clear();
+		driver.findElement(By.xpath(prop.getProperty("username"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 4, "LoginPage"));
+		Commons.waitFor(1000);
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("usernameValidationText"))).getText(), "Username does not exist.", "Username does not exist message is not validated");
+		
+		driver.findElement(By.xpath(prop.getProperty("username"))).clear();
+		driver.findElement(By.xpath(prop.getProperty("username"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(0, 1, "LoginPage"));
+	}
+	
+	public void sendDataToPasswordTextFieldForLoginTest() throws BiffException, IOException, InterruptedException {
+		this.clickOnLoginButton();
+		Commons.waitFor(1000);
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("passwordValidationText"))).getText(), "Password id required", "Password is required message is not validated");		
+		driver.findElement(By.xpath(prop.getProperty("password"))).sendKeys(readExcelData.getCellDataWithRowColAndSheetName(1, 2, "LoginPage"));
+		Commons.waitFor(1000);
+		Assert.assertEquals(driver.findElement(By.xpath(prop.getProperty("passwordValidationText"))).getText(), "Wrong password.", "Wrong password message is not validated");
 	}
 	
 	public void clickOnNextButton() {
@@ -67,11 +89,11 @@ public class LoginPage {
 	public void loginToTheApplication() throws InterruptedException, IOException, BiffException {
 		LoginPage loginPage = new LoginPage(driver);
 		Commons.waitFor(1000);
-		loginPage.sendDataToUsernameTextField(readExcelData.getCellDataWithRowColAndSheetName(0, 1, "LoginPage"));
+		loginPage.sendDataToUsernameTextFieldForRegularLogin();
 		Commons.waitFor(1000);
 		loginPage.clickOnNextButton();
 		Commons.waitFor(1000);
-		loginPage.sendDataToPasswordTextField(readExcelData.getCellDataWithRowColAndSheetName(1, 1, "LoginPage"));
+		loginPage.sendDataToPasswordTextFieldForRegularLogin();
 		Commons.waitFor(1000);
 		loginPage.clickOnLoginButton();
 		Commons.waitFor(1000);
